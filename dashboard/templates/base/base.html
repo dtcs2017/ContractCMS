@@ -1,28 +1,25 @@
 {% load static %}
 {% load humanize %}
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html class="no-js" lang="zh-Hans">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/spectre.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/spectre-exp.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/spectre-icons.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/foundation/foundation.min.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}">
     {% block head %}{% endblock %}
 </head>
 <body>
-{% block nav %}
-
-{% endblock %}
+{% block nav %}{% endblock %}
 {% block sidebar %}{% endblock %}
 {% block main %}{% endblock %}
 {% block footer %}{% endblock %}
 
-<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/foundation/jquery.min.js' %}"></script>
+<script src="{% static 'js/foundation/foundation.min.js' %}"></script>
+<script src="{% static 'js/foundation/what-input.js' %}"></script>
 {% block js_code %}{% endblock %}
 </body>
 </html>
