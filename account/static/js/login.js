@@ -8,6 +8,6 @@ $(document).ready(function () {
     $("label[for='id_password']").text('密码：');
     $("label[for='id_password2']").text('重复密码：');
     label.addClass('text-primary');
-    label.addClass('text-left');
+    // label.addClass('text-left');
     $("ul.errorlist").text('用户名密码错误或未激活用户');
 });

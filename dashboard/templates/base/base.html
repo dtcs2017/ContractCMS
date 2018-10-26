@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="{% static 'css/spectre.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/spectre-exp.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/spectre-icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}">
     {% block head %}{% endblock %}
 </head>
 <body>
-{% block nav %}{% endblock %}
+{% block nav %}
+
+{% endblock %}
 {% block sidebar %}{% endblock %}
 {% block main %}{% endblock %}
 {% block footer %}{% endblock %}

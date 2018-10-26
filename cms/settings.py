@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'dashboard.apps.DashboardConfig',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,7 @@ STATIC_URL = '/static/'
 
 # 自定义用户模型
 AUTH_USER_MODEL = 'account.User'
+
+# 登录后跳转
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'

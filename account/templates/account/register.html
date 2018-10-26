@@ -5,32 +5,21 @@
 {% endblock %}
 
 {% block head %}
-    <style>
-        ul {
-            list-style: none;
-        }
-
-        .errorlist {
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/account/account.css' %}">
 {% endblock %}
 
-{% block nav %}
-    {% include 'base/nav.html' %}
-{% endblock %}
 
 {% block main %}
     {% if user.is_authenticated %}
         <div class="container">
-            <h1 class="text-center p-2">您已登录,请先<a href="#">登出</a>后注册新用户</h1>
+            <h1 class="text-center p-2">您已登录,请先<a href="{% url 'logout' %}?next={{ request.path }}">登出</a>后注册新用户</h1>
         </div>
 
     {% else %}
         <div class="container">
             <h1 class="text-center p-2">新用户注册</h1>
             <div class="columns text-center">
-                <div class="column col-sm-10 col-md-7 col-lg-6 col-xl-4 col-4 col-mx-auto">
+                <div class="column col-sm-10 col-md-7 col-lg-6 col-xl-5 col-4 col-mx-auto">
                     <form action="." method="post" class="form-horizontal">
                         {{ form.non_field_errors }}
                         {% for field in form %}
@@ -38,7 +27,7 @@
                                 <div class="col-3 col-sm-12">
                                     {{ field.label_tag }}
                                 </div>
-                                <div class="col-9 col-sm-12">
+                                <div class="col-6 col-sm-12">
                                     {{ field }}
                                 </div>
                                 {{ field.errors }}
@@ -51,7 +40,7 @@
             </div>
             <div class="columns text-center">
                 <div class="column col-sm-10 col-md-7 col-lg-6 col-xl-5 col-4 col-mx-auto">
-                    <span>已经有账户?去<a href="{% url 'login' %}">登录</a></span>
+                    <span class="letter-spacing">已经有账户?&nbsp;去<a href="{% url 'login' %}?next={{ request.path }}">登录</a></span>
                 </div>
             </div>
         </div>

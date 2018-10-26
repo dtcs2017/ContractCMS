@@ -1,0 +1,11 @@
+.letter-spacing {
+    letter-spacing:0.1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.text-white {
+    color: white!important;
+}
