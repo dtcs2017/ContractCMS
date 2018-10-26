@@ -1,0 +1,73 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+    登录
+{% endblock %}
+
+{% block head %}
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        .errorlist {
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block nav %}
+    {% include 'base/nav.html' %}
+{% endblock %}
+
+{% block main %}
+    {% if user.is_authenticated %}
+        <div class="container">
+            <h1 class="text-center p-2">您已登录,请<a href="#">登出</a></h1>
+        </div>
+
+    {% else %}
+        <div class="container">
+            <h1 class="text-center p-2">登录</h1>
+            <div class="columns text-center">
+                <div class="column col-sm-10 col-md-7 col-lg-6 col-xl-4 col-4 col-mx-auto">
+                    <form action="." method="post" class="form-horizontal">
+                        {% for field in form %}
+                            <div class="form-group">
+                                <div class="col-3 col-sm-12">
+                                    {{ field.label_tag }}
+                                </div>
+                                <div class="col-9 col-sm-12">
+                                    {{ field }}
+
+                                </div>
+                                {{ field.errors }}
+                            </div>
+                        {% endfor %}
+                        {{ form.non_field_errors }}
+                        {% csrf_token %}
+                        <input type="submit" value="登录" class="btn btn-primary m-2">
+                    </form>
+                </div>
+            </div>
+            <div class="columns text-center">
+                <div class="column col-sm-10 col-md-7 col-lg-6 col-xl-5 col-4 col-mx-auto">
+                    <span>还没有账户? 请先<a href="{% url "account:register" %}">注册</a>一个账户</span>
+                </div>
+            </div>
+            <div class="columns text-center">
+                <div class="column col-sm-10 col-md-7 col-lg-6 col-xl-5 col-4 col-mx-auto">
+                    <span>新注册账户请<a href="#">联系管理员</a>进行激活</span>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+
+
+{% block js_code %}
+    <script src="{% static 'js/login.js' %}">
+    </script>
+{% endblock %}
