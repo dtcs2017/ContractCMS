@@ -1,19 +1,9 @@
-ul {
-    list-style: none;
+body {
+    background-color: #eee;
 }
 
-.errorlist {
+form ul.errorlist {
+    list-style: none;
     color: red;
 }
 
-@media screen and (max-width: 600px) {
-    label {
-        text-align: left;
-    }
-}
-
-@media screen and (min-width: 601px) {
-    label {
-        text-align: right;
-    }
-}

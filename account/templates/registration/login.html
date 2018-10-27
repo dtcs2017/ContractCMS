@@ -10,46 +10,53 @@
 
 {% block main %}
     {% if user.is_authenticated %}
-        <div class="container">
-            <h1 class="text-center p-2">您已登录,请<a href="{% url 'logout' %}">登出</a></h1>
+        <div class="grid-container">
+            <div class="grid-y grid-frame align-center-middle">
+                <div class="cell small-9 medium-6 text-center">
+                    <h1>你已登录，请<a href="{% url 'logout' %}?next={{ request.path }}">登出</a>或<a href="{% url 'dashboard:dashboard' %}">返回首页</a></h1>
+                </div>
+            </div>
         </div>
     {% else %}
-        <div class="container">
-            <h1 class="text-center p-2">登录</h1>
-            <div class="columns">
-                <div class="column col-sm-10 col-md-7 col-lg-6 col-xl-4 col-4 col-mx-auto">
-                    <form action="." method="post" class="form-horizontal">
+        <div class="grid-container">
+            <div class="grid-y grid-frame align-center-middle">
+                <div class="cell small-10 medium-6">
+                    <div class="grid-x align-center-middle text-center">
+                        <h1>登&nbsp;录</h1>
+                    </div>
+                    <form action="." method="post">
                         {% for field in form %}
-                            <div class="form-group">
-                                <div class="col-3 col-sm-12">
+                            <div class="grid-x align-center-middle text-center">
+                                <div class="cell small-10 medium-5 large-4">
                                     {{ field.label_tag }}
                                 </div>
-                                <div class="col-6 col-sm-12">
+                            </div>
+                            <div class="grid-x align-center-middle text-center">
+                                <div class="cell small-10 medium-5 large-4">
                                     {{ field }}
-
                                 </div>
-                                {{ field.errors }}
+                            </div>
+                            <div class="grid-x align-center-middle text-center">
+                                <div class="cell small-10 medium-5 large-4">
+                                    {{ field.errors }}
+                                </div>
                             </div>
                         {% endfor %}
-                        {{ form.non_field_errors }}
-                        {% csrf_token %}
-                    <div class="columns text-center">
-                        <div class="column text-center">
-                        <input type="submit" value="登录" class=" btn btn-primary m-2">
+                        <div class="grid-x align-center-middle text-center">
+                            <div class="cell small-10 medium-5 large-4">
+                                {{ field.label_tag }}
                             </div>
                         </div>
-                    <input type="hidden" name="next" value="{{ next }}"/>
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}">
+                        <div class="grid-x align-center-middle text-center">
+                            <div class="cell small-10 medium-5 large-4">
+                                <button type="submit" class="button">登录</button>
+                                <p>还没有账户？去<a href="{% url "account:register" %}">注册新用户</a></p>
+                                <p>首次登录系统请联系管理员激活账号</p>
+                            </div>
+                        </div>
                     </form>
-                </div>
-            </div>
-            <div class="columns text-center">
-                <div class="column col-sm-10 col-md-7 col-lg-6 col-xl-5 col-4 col-mx-auto">
-                    <span class="letter-spacing">还没有账户? 请先<a href="{% url "account:register" %}">注册</a>一个账户</span>
-                </div>
-            </div>
-            <div class="columns text-center">
-                <div class="column col-sm-10 col-md-7 col-lg-6 col-xl-5 col-4 col-mx-auto">
-                    <span class="letter-spacing">新注册账户请<a href="#">联系管理员</a>进行激活</span>
                 </div>
             </div>
         </div>

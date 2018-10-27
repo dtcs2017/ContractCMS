@@ -5,21 +5,29 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/foundation/foundation.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/foundation/foundation-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base/base.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}">
     {% block head %}{% endblock %}
 </head>
 <body>
 {% block nav %}{% endblock %}
+
 {% block sidebar %}{% endblock %}
 {% block main %}{% endblock %}
+{% include 'base/message.html' %}
 {% block footer %}{% endblock %}
 
 <script src="{% static 'js/foundation/jquery.min.js' %}"></script>
 <script src="{% static 'js/foundation/foundation.min.js' %}"></script>
 <script src="{% static 'js/foundation/what-input.js' %}"></script>
+<script src="{% static 'js/base/base.js' %}"></script>
+<script>
+    $(document).foundation();
+</script>
 {% block js_code %}{% endblock %}
 </body>
 </html>

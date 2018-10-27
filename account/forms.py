@@ -3,8 +3,8 @@ from .models import User
 
 
 class UserRegisterForm(forms.ModelForm):
-    password = forms.CharField(label='password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
+    password = forms.CharField(label='密码', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='重复密码', widget=forms.PasswordInput)
 
     def clean_password2(self):
         cd = self.cleaned_data
@@ -15,3 +15,7 @@ class UserRegisterForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'email')
+        labels = {
+            'username': '用户名',
+            'email': '电子邮件',
+        }

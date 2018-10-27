@@ -6,41 +6,60 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/account/account.css' %}">
+    <style>
+
+    </style>
 {% endblock %}
 
 
 {% block main %}
     {% if user.is_authenticated %}
-        <div class="container">
-            <h1 class="text-center p-2">您已登录,请先<a href="{% url 'logout' %}?next={{ request.path }}">登出</a>后注册新用户</h1>
-        </div>
-
-    {% else %}
-        <div class="container">
-            <h1 class="text-center p-2">新用户注册</h1>
-            <div class="columns text-center">
-                <div class="column col-sm-10 col-md-7 col-lg-6 col-xl-5 col-4 col-mx-auto">
-                    <form action="." method="post" class="form-horizontal">
-                        {{ form.non_field_errors }}
-                        {% for field in form %}
-                            <div class="form-group">
-                                <div class="col-3 col-sm-12">
-                                    {{ field.label_tag }}
-                                </div>
-                                <div class="col-6 col-sm-12">
-                                    {{ field }}
-                                </div>
-                                {{ field.errors }}
-                            </div>
-                        {% endfor %}
-                        {% csrf_token %}
-                        <input type="submit" value="注册" class="btn btn-primary m-2">
-                    </form>
+        <div class="grid-container">
+            <div class="grid-y grid-frame align-center-middle">
+                <div class="cell small-9 medium-6 text-center">
+                    <h1>你已登录，请<a href="{% url 'logout' %}?next={{ request.path }}">登出</a>后注册新用户或<a href="{% url 'dashboard:dashboard' %}">返回首页</a></h1>
                 </div>
             </div>
-            <div class="columns text-center">
-                <div class="column col-sm-10 col-md-7 col-lg-6 col-xl-5 col-4 col-mx-auto">
-                    <span class="letter-spacing">已经有账户?&nbsp;去<a href="{% url 'login' %}?next={{ request.path }}">登录</a></span>
+        </div>
+    {% else %}
+        <div class="grid-container">
+            <div class="grid-y grid-frame align-center-middle">
+                <div class="cell small-10 medium-6">
+                    <div class="grid-x align-center-middle text-center">
+                        <h1>注册新用户</h1>
+                    </div>
+                    <form action="." method="post">
+                        {% for field in form %}
+                            <div class="grid-x align-center-middle text-center">
+                                <div class="cell small-10 medium-5 large-4">
+                                    {{ field.label_tag }}
+                                </div>
+                            </div>
+                            <div class="grid-x align-center-middle text-center">
+                                <div class="cell small-10 medium-5 large-4">
+                                    {{ field }}
+                                </div>
+                            </div>
+                            <div class="grid-x align-center-middle text-center">
+                                <div class="cell small-10 medium-5 large-4">
+                                    {{ field.errors }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="grid-x align-center-middle text-center">
+                            <div class="cell small-10 medium-5 large-4">
+                                {{ field.label_tag }}
+                            </div>
+                        </div>
+                        {% csrf_token %}
+                        <div class="grid-x align-center-middle text-center">
+                            <div class="cell small-10 medium-5 large-4">
+                                <button type="submit" class="button">注册</button>
+                                <p>已有账号？去<a href="{% url 'login' %}?next={{ request.path }}">登录</a></p>
+                                <p class="show-for-small-only">注册成功后跳转登录页面，请联系管理员激活账号</p>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -50,6 +69,6 @@
 {% endblock %}
 
 {% block js_code %}
-    <script src="{% static 'js/account/resigter.js' %}">
-    </script>
+        <script src="{% static 'js/account/resigter.js' %}"></script>
+
 {% endblock %}

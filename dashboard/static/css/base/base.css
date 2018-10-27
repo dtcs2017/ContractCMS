@@ -1,0 +1,15 @@
+.message {
+    position: fixed;
+    bottom:-16px;
+    /*right: 0;*/
+}
+
+
+.message p {
+    margin-bottom: 0;
+}
+
+.message button {
+    display: inline-block;
+    line-height: 0.8;
+}
