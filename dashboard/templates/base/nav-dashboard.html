@@ -1,0 +1,40 @@
+<!-- Start Top Bar -->
+<div class="callout large primary">
+    <article class="grid-container">
+        <div class="grid-x ">
+            <div class="medium-8 cell">
+                <h1 class="show-for-small-only text-center">合同管理系统</h1>
+                <h1 class="hide-for-small-only">合同管理系统</h1>
+                <p class="subheader hide-for-small-only h4">快速、准确记录合同信息和查看付款进度</p>
+            </div>
+            <div class="medium-4 cell">
+                <form action="#" method="post">
+                    <div class="input-group">
+                        <input class="input-group-field" placeholder="合同或供应商" type="text">
+                        {% csrf_token %}
+                        <div class="input-group-button">
+                            <input type="submit" class="button" value="搜索">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br class="hide-for-small-only">
+        <ul class="menu hide-for-small-only">
+            <li><a href="#">合同管理</a></li>
+            <li><a href="#">请款管理</a></li>
+            <li><a href="#">付款管理</a></li>
+        </ul>
+        <ul class="vertical menu accordion-menu show-for-small-only" data-accordion-menu>
+            <li>
+                <a href="#">Menu</a>
+                <ul class="menu vertical nested">
+                    <li><a href="#">合同管理</a></li>
+                    <li><a href="#">请款管理</a></li>
+                    <li><a href="#">付款管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </article>
+</div>
+<!-- End Top Bar -->

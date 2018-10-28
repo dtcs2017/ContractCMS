@@ -14,11 +14,23 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+{#导航条#}
 {% block nav %}{% endblock %}
-{% include 'base/message.html' %}
+{#侧边栏#}
 {% block sidebar %}{% endblock %}
+{#主体部分#}
 {% block main %}{% endblock %}
+{#页脚#}
 {% block footer %}{% endblock %}
+{#消息模块#}
+{% include 'base/message.html' %}
+
+
+
+
+
+
+
 
 <script src="{% static 'js/foundation/jquery.min.js' %}"></script>
 <script src="{% static 'js/foundation/foundation.min.js' %}"></script>

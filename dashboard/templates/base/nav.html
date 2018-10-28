@@ -1,5 +1,6 @@
 <!-- Start Top Bar -->
-<div class="title-bar" data-responsive-toggle="mainNavigation" data-hide-for="medium" style="background-color: #5e5e5e;">
+<div class="title-bar" data-responsive-toggle="mainNavigation" data-hide-for="medium"
+     style="background-color: #5e5e5e;">
     <div class="title-bar-left">
         <button class="menu-icon" type="button" data-toggle="mainNavigation"></button>
         <div class="title-bar-title">合同管理系统</div>
@@ -12,7 +13,8 @@
 <div class="top-bar" id="mainNavigation">
     <div class="top-bar-left">
         <ul class="menu vertical medium-horizontal">
-            <li class="hide-for-small-only"><span class="badge"><a href="{% url 'dashboard:dashboard' %}" style="color:white">ContractMS</a></span></li>
+            <li class="hide-for-small-only"><span class="badge"><a href="{% url 'dashboard:dashboard' %}"
+                                                                   style="color:white">ContractMS</a></span></li>
             <li><a href="#">合同管理</a></li>
             <li><a href="#">请款管理</a></li>
             <li><a href="#">付款记录</a></li>
@@ -20,8 +22,11 @@
     </div>
     <div class="top-bar-right">
         <ul class="menu vertical medium-horizontal">
+            <li>
+                <button type="button" class="button"><i class="fi-magnifying-glass"></i></button>
+            </li>
             <li><input type="search" placeholder="合同或供应商..."></li>
-            <li><button type="button" class="button">搜索</button></li>
+
             {% if user.is_authenticated %}
                 <li class="menu-text">欢迎&nbsp;{{ user.username }}</li>
                 <li><a href="{% url 'logout' %}?next={{ request.path }}">登出</a></li>

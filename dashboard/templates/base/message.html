@@ -1,8 +1,5 @@
 {% for message in messages %}
-{#    <div class="">#}
-        <div class="grid-container ">
-            <div class="grid-x align-center">
-                <div class="cell small-9 medium-5 message hide-for-small-only">
+                <div class="message hide-for-small-only">
                     <div class="callout small {% if message.tags %}{{ message.tags }}{% endif %}"
                          data-closable>
                         <p>{{ message|safe }}</p>
@@ -11,7 +8,4 @@
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
-{#    </div>#}
 {% endfor %}

@@ -1,9 +1,14 @@
+/*背景色*/
+body {
+    background-color: #f3f3f3;
+}
+
+/*消息模块样式*/
 .message {
     position: fixed;
     bottom:-16px;
     /*right: 0;*/
 }
-
 
 .message p {
     margin-bottom: 0;
@@ -12,4 +17,15 @@
 .message button {
     display: inline-block;
     line-height: 0.8;
+}
+/*消息模块样式结束*/
+
+/*card增加阴影*/
+.shadow
+{
+box-shadow: 1px 1px 3px 1px #aaaaaa;
+}
+
+.card .label{
+    font-size: 1em;
 }
