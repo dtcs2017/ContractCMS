@@ -15,10 +15,9 @@
 </head>
 <body>
 {% block nav %}{% endblock %}
-
+{% include 'base/message.html' %}
 {% block sidebar %}{% endblock %}
 {% block main %}{% endblock %}
-{% include 'base/message.html' %}
 {% block footer %}{% endblock %}
 
 <script src="{% static 'js/foundation/jquery.min.js' %}"></script>

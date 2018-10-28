@@ -1,6 +1,8 @@
 // 消息框固定在顶部，8秒钟后消失
+let message = $('.message');
+message.css({top:0});
 $(window).resize(function () {
-    let message = $('.message');
+
     let viewWidth = $(window).width();
     let messageWidth = message.width();
     let leftPixel = (viewWidth - messageWidth)/2;
