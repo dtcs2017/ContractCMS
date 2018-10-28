@@ -10,7 +10,7 @@
             <div class="medium-4 cell">
                 <form action="#" method="post">
                     <div class="input-group">
-                        <input class="input-group-field" placeholder="合同或供应商" type="text">
+                        <input class="input-group-field" placeholder="合同或供应商..." type="search" name="search">
                         {% csrf_token %}
                         <div class="input-group-button">
                             <input type="submit" class="button" value="搜索">
@@ -21,7 +21,7 @@
         </div>
         <br class="hide-for-small-only">
         <ul class="menu hide-for-small-only">
-            <li><a href="#">合同管理</a></li>
+            <li><a href="{% url 'contracts:contract_list' %}">合同管理</a></li>
             <li><a href="#">请款管理</a></li>
             <li><a href="#">付款管理</a></li>
         </ul>
@@ -29,7 +29,7 @@
             <li>
                 <a href="#">Menu</a>
                 <ul class="menu vertical nested">
-                    <li><a href="#">合同管理</a></li>
+                    <li><a href="{% url 'contracts:contract_list' %}">合同管理</a></li>
                     <li><a href="#">请款管理</a></li>
                     <li><a href="#">付款管理</a></li>
                 </ul>

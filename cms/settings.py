@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'dashboard.apps.DashboardConfig',
+    'contracts.apps.ContractsConfig',
 ]
 
 MIDDLEWARE = [

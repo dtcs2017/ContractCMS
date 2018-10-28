@@ -1,0 +1,1 @@
+$('#id_subject').attr({'disabled':'disabled'});

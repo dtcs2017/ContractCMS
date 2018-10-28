@@ -1,0 +1,101 @@
+{% extends 'base/base.html' %}
+{% load contracts_tag %}
+{% block title %}
+{{ contract.name }}合同详情
+{% endblock %}
+
+{% block nav %}
+    {% include 'base/nav.html' %}
+{% endblock %}
+
+{% block main %}
+    <div class="grid-container fluid full">
+        <div class="grid-x">
+            {#侧边栏部分,采用Accordion样式菜单#}
+            <div class="cell large-2 text-center">
+                <ul class="accordion" data-accordion data-allow-all-closed="true">
+                    <li class="accordion-item is-active" data-accordion-item>
+                        <a href="#" class="accordion-title rem-1">可用操作</a>
+                        <div class="accordion-content" data-tab-content>
+                            <a href="{% url 'contracts:contract_add' %}">新增合同</a>
+                            <hr>
+                            <a href="{% url 'contracts:contract_edit' contract.id %}">修改合同</a>
+                            <hr>
+                            <a href="{% url 'contracts:contract_add_supple' contract.id %}">新增补充合同</a>
+                            <hr>
+                            <a href="#">新增请款</a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            {#主体部分,采用表格#}
+            <div class="cell large-10">
+                <div class="grid-x grid-padding-x ">
+                    <div class="cell">
+                        <h1 class="text-center">{{ contract.name }}</h1>
+                        <div class="callout primary grid-x text-center">
+                            <div class="cell">
+                                <h3 class="">合同基础信息</h3>
+                            </div>
+                            <div class="cell medium-6"><p><strong>合同名称：</strong>{{ contract.name }}</p></div>
+                            <div class="cell medium-6"><p><strong>供应商名称：</strong>{{ contract.supplier }}</p></div>
+                            <div class="cell medium-6"><p><strong>合同索引：</strong>{{ contract.index }}</p></div>
+                            <div class="cell medium-6"><p><strong>是否有效：</strong>{% if contract.active %}
+                                <i class="fi-check success-color"></i>
+                            {% else %}<i class="fi-x alert-color"></i>
+                            {% endif %}</p></div>
+                            <div class="cell medium-6"><p><strong>合同种类：</strong>{{ contract.subject.full_name }}</p>
+                            </div>
+                            <div class="cell medium-6"><p><strong>签订日期：</strong>{{ contract.sign|date:"Y-m-d" }}</p>
+                            </div>
+                        </div>
+
+                        <div class="callout success grid-x text-center">
+                            <div class="cell">
+                                <h3 class="">合同付款信息</h3>
+                            </div>
+                            <div class="cell medium-6"><p><strong>合同原始价格：</strong>{{ contract.amount|comma }}</p></div>
+                            <div class="cell medium-6"><p><strong>合同决算价格：</strong>{% if contract.definite %}
+                                {{ contract.definite|comma }}{% else %}无{% endif %}</p></div>
+                            <div class="cell medium-6"><p><strong>累计请款：</strong>待编写</p></div>
+                            <div class="cell medium-6"><p><strong>请款比例：</strong>待编写</p></div>
+                            <div class="cell medium-6"><p><strong>累计付款：</strong>待编写</p></div>
+                            <div class="cell medium-6"><p><strong>付款比例：</strong>待编写</p></div>
+                            <div class="cell "><p><strong>付款节点：</strong>{{ contract.text }}</p></div>
+                        </div>
+
+                        <div class="callout warning grid-x text-center">
+                            <div class="cell">
+                                <h3 class="">其他信息</h3>
+                            </div>
+
+                            <div class="cell medium-6"><p><strong>是否补充合同：</strong>{% if contract.is_supple %}
+                                <i class="fi-check success-color" ></i>
+                            {% else %}<i class="fi-x alert-color"></i>
+                            {% endif %}</p></div>
+
+                            {% if contract.is_supple %}
+                            <div class="cell medium-6"><p><strong>主合同：</strong><a href="{{ contract.master_name.get_absolute_url }}">{{ contract.master_name.name }}</a></p></div>
+                            {% endif %}
+
+                            <div class="cell medium-6"><p><strong>是否有补充合同：</strong>{% if contract.hassupple %}
+                                <i class="fi-check success-color"></i>
+                            {% else %}<i class="fi-x alert-color"></i>
+                            {% endif %}</p></div>
+
+                            <div class="cell medium-6"><p><strong>是否甲供材合同：</strong>{% if contract.jgc %}
+                                <i class="fi-check success-color" ></i>
+                            {% else %}<i class="fi-x alert-color"></i>
+                            {% endif %}</p></div>
+                            <div class="cell medium-6"><p><strong>合同录入时间：</strong>{{ contract.created|date:"Y-m-d" }}
+                            </p></div>
+                            <div class="cell medium-6"><p><strong>最后修改时间：</strong>{{ contract.updated|date:"Y-m-d" }}
+                            </p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load contracts_tag %}
+{% block title %}
+    新增合同
+{% endblock %}
+
+{% block head %}
+    <style>
+    body {
+        background-color: #f0f0f0;
+    }
+    </style>
+{% endblock %}
+
+{% block nav %}
+    {% include 'base/nav.html' %}
+{% endblock %}
+
+{% block main %}
+    <form action="." method="post">
+        <div class="grid-container">
+            <h1 class="text-center">{% if contract %}新增<span class="primary-color">{{ contract.name }}</span>
+                的补充合同{% else %}新增合同{% endif %}</h1>
+            {% for field in form %}
+                <div class="grid-x align-center-middle grid-padding-x ">
+                    <div class="cell small-10 medium-2 medium-text-right">
+                        {{ field.label_tag }}
+                    </div>
+                    <div class="cell small-10 medium-5">
+                        {{ field }}
+                    </div>
+                </div>
+                <div class="grid-x align-center">
+                    <div class="cell small-10 text-center">
+                        {{ field.errors }}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="grid-x align-center">
+                <div class="cell small-10 text-center">
+                    {{ form.non_field_errors }}
+                </div>
+            </div>
+            {% csrf_token %}
+            <input type="hidden" name="master" value="{{ contract.id }}">
+            <div class="grid-x align-center">
+                <div class="cell"><p class="alert-color text-center">合同类别提交后无法修改，录入错误请立刻<a href="#">联系管理员</a></p></div>
+
+                <input type="submit" class="button" value="提交">
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block js_code %}
+    <script src="{% static 'js/contracts/contract_form.js' %}"></script>
+{% endblock %}

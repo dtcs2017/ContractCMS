@@ -15,7 +15,7 @@
         <ul class="menu vertical medium-horizontal">
             <li class="hide-for-small-only"><span class="badge"><a href="{% url 'dashboard:dashboard' %}"
                                                                    style="color:white">ContractMS</a></span></li>
-            <li><a href="#">合同管理</a></li>
+            <li><a href="{% url 'contracts:contract_list' %}">合同管理</a></li>
             <li><a href="#">请款管理</a></li>
             <li><a href="#">付款记录</a></li>
         </ul>
@@ -23,12 +23,15 @@
     <div class="top-bar-right">
         <ul class="menu vertical medium-horizontal">
             <li>
-                <button type="button" class="button"><i class="fi-magnifying-glass"></i></button>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <button style="display: inline-block" type="submit" class="button"><i class="fi-magnifying-glass"></i></button>
+                    <input style="display:inline;" name="search" type="search" placeholder="合同或供应商...">
+                </form>
             </li>
-            <li><input type="search" placeholder="合同或供应商..."></li>
 
             {% if user.is_authenticated %}
-                <li class="menu-text">欢迎&nbsp;{{ user.username }}</li>
+                <li class="menu-text hide-for-small-only">欢迎&nbsp;{{ user.username }}</li>
                 <li><a href="{% url 'logout' %}?next={{ request.path }}">登出</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}?next={{ request.path }}">登录</a></li>

@@ -1,7 +1,7 @@
 /*背景色*/
-body {
-    background-color: #f3f3f3;
-}
+/*body {*/
+    /*background-color: #f3f3f3;*/
+/*}*/
 
 /*消息模块样式*/
 .message {
@@ -26,6 +26,37 @@ body {
 box-shadow: 1px 1px 3px 1px #aaaaaa;
 }
 
+/*修正首页使用的字体*/
 .card .label{
     font-size: 1em;
+}
+
+/*字体大小*/
+.rem-1 {
+    font-size: 1rem!important;
+  }
+
+/*手风琴列表的hr长度*/
+.accordion-content hr {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/*颜色系列*/
+.primary-color {
+    color:#1779ba!important;
+}
+
+.success-color {
+    color:#3adb76!important;
+}
+
+.alert-color {
+    color: #cc4b37!important;
+}
+
+/*所有表单错误信息*/
+form ul.errorlist {
+    list-style: none;
+    color: #cc4b37;
 }

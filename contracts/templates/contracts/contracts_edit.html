@@ -1,0 +1,71 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load contracts_tag %}
+{% block title %}
+    修改{{ contract.name }}
+{% endblock %}
+
+{% block head %}
+    <style>
+    body {
+        background-color: #f0f0f0;
+    }
+    </style>
+{% endblock %}
+
+{% block nav %}
+    {% include 'base/nav.html' %}
+{% endblock %}
+
+{% block main %}
+    <form action="." method="post">
+        <div class="grid-container">
+            <h1 class="text-center">修改<span class="primary-color">{{ contract.name }}</span></h1>
+            <div class="grid-x align-center-middle grid-padding-x ">
+
+                <div class="cell small-10 medium-2 medium-text-right">
+                    <label for="id_index">索引:</label>
+                </div>
+                <div class="cell small-10 medium-5">
+                    <input type="text" name="index" value="{{ contract.index }}" readonly id="id_index">
+                </div>
+            </div>
+            {% for field in form %}
+
+                <div class="grid-x align-center-middle grid-padding-x ">
+
+                    <div class="cell small-10 medium-2 medium-text-right">
+                        {{ field.label_tag }}
+                    </div>
+                    <div class="cell small-10 medium-5">
+                        {{ field }}
+                    </div>
+                </div>
+                <div class="grid-x align-center">
+                    <div class="cell small-10 text-center">
+                        {{ field.errors }}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="grid-x align-center">
+                <div class="cell small-10 text-center">
+                    {{ form.non_field_errors }}
+                </div>
+            </div>
+            {% csrf_token %}
+            <input type="hidden" name="contract_id" value="{{ contract.id }}">
+            <input type="hidden" name="master" value="{{ contract.master }}">
+            <input type="hidden" name="subject" value="{{ contract.subject_id }}">
+
+            <div class="grid-x align-center">
+                <input type="submit" class="button" value="提交">
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block js_code %}
+    <script src="{% static 'js/contracts/contract_form.js' %}"></script>
+    <script src="{% static 'js/contracts/contract_edit.js' %}"></script>
+{% endblock %}
