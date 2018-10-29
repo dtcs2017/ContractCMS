@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'dashboard.apps.DashboardConfig',
     'contracts.apps.ContractsConfig',
+    'requisitions.apps.RequisitionsConfig',
 ]
 
 MIDDLEWARE = [

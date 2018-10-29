@@ -46,10 +46,12 @@
                                 <thead>
                                 <tr>
                                     <th class="text-center">索引</th>
-                                    <th class="text-center"><span data-tooltip tabindex="1" title="点击合同名进入详情页">合同名称</span></th>
+                                    <th class="text-center"><span data-tooltip tabindex="1" title="点击合同查看详情">合同名称</span></th>
                                     <th class="text-center">供应商名称</th>
                                     <th class="text-center">合同金额</th>
                                     <th class="text-center">决算金额</th>
+                                    <th class="text-center"><span data-tooltip tabindex="2" title="点击金额查看请款详情">请款金额</span></th>
+                                    <th class="text-center">请款比例</th>
                                     <th class="text-center hide-for-small-only">签订时间</th>
                                     <th class="text-center hide-for-small-only">有效</th>
                                 </tr>
@@ -64,6 +66,8 @@
                                         <td>{{ contract.supplier }}</td>
                                         <td>{{ contract.amount|comma }}</td>
                                         <td>{% if contract.definite %}{{ contract.definite|comma }}{% endif %}</td>
+                                        <td><a href="{% url 'requisitions:req_detail' contract.id %}">{% if contract.total_requisition %}{{ contract.total_requisition|comma }}{% endif %}</a></td>
+                                        <td>{% if contract.requisition_rate %}{% if contract.requisition_rate > 1 %}<span class="alert-color"><i class="fi-alert"></i></span>{% endif %}{{ contract.requisition_rate|rate }}{% endif %}</td>
                                         <td class="hide-for-small-only">{{ contract.sign|date:"Y-m-d" }}</td>
                                         <td class="hide-for-small-only">
                                             {% if contract.active %} <i class="fi-check success-color"></i>
@@ -80,6 +84,8 @@
                                         <td>{{ supple.supplier }}</td>
                                         <td>{{ supple.amount|comma }}</td>
                                         <td>{% if supple.definite %}{{ supple.definite|comma }}{% endif %}</td>
+                                        <td><a href="{% url 'requisitions:req_detail' supple.id %}">{% if supple.total_requisition %}{{ supple.total_requisition|comma }}{% endif %}</a></td>
+                                        <td>{% if supple.requisition_rate %}{% if supple.requisition_rate > 1 %}<span class="alert-color"><i class="fi-alert"></i></span>{% endif %}{{ supple.requisition_rate|rate }}{% endif %}</td>
                                         <td class="hide-for-small-only">{{ supple.sign|date:"Y-m-d" }}</td>
                                         <td class="hide-for-small-only">
                                             {% if supple.active %} <i class="fi-check success-color"></i>

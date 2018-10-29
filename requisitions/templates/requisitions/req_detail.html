@@ -1,0 +1,132 @@
+{% extends 'base/base.html' %}
+{% load contracts_tag %}
+{% load static %}
+{% block title %}
+    {{ contract.name }}请款详情
+{% endblock %}
+
+
+{% block nav %}
+    {% include 'base/nav.html' %}
+{% endblock %}
+
+{% block main %}
+    <div class="grid-container fluid full">
+        <div class="grid-x">
+            {#侧边栏部分,采用Accordion样式菜单#}
+            <div class="cell large-2 text-center">
+                <ul class="accordion" data-accordion data-allow-all-closed="true">
+                    <li class="accordion-item is-active" data-accordion-item>
+                        <a href="#" class="accordion-title rem-1">可用操作</a>
+                        <div class="accordion-content" data-tab-content>
+                            <a href="{% url 'contracts:contract_edit' contract.id %}">修改合同</a>
+                            <hr>
+                            <a href="{% url 'contracts:contract_add_supple' contract.id %}">新增补充合同</a>
+                            <hr>
+                            <a href="{% url 'contracts:contract_detail' contract.id %}">查看合同详情</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            {#主体部分,采用表格#}
+            <div class="cell large-10">
+                <div class="grid-x grid-padding-x ">
+                    <div class="cell">
+                        <h1 class="text-center">{{ contract.name }}请款详情</h1>
+
+                        <div class="grid-x text-center">
+                            <div class="cell">
+                                <h3 class="">合同款项信息</h3>
+                            </div>
+                            <table class="hover stack">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">原始金额</th>
+                                    <th class="text-center">决算金额</th>
+                                    <th class="text-center">累计请款</th>
+                                    <th class="text-center">请款比例</th>
+                                    <th class="text-center">累计付款</th>
+                                    <th class="text-center">付款比例</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{{ contract.amount|comma }}</td>
+                                    <td>{% if contract.definite %}{{ contract.definite|comma }}{% endif %}</td>
+                                    <td>{% if contract.total_requisition %}
+                                        {{ contract.total_requisition|comma }}
+                                    {% endif %}</td>
+                                    <td>{% if contract.requisition_rate %}{% if contract.requisition_rate > 1 %}
+                                        <span class="alert-color"><i class="fi-alert"></i></span>{% endif %}
+                                        {{ contract.requisition_rate|rate }}{% endif %}</td>
+                                    <td>待编写</td>
+                                    <td>待编写</td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="cell text-left"><p><strong>付款节点说明：</strong>{{ contract.text }}</p></div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <hr>
+                <div class="grid-x grid-padding-x">
+                    <div class="cell">
+                    {% if reqs.count %}
+                        <h3 class="text-center">合同请款记录</h3>
+                        <table class="hover stack text-center">
+                            <thead>
+                            <tr>
+                                <th class="text-center">序号</th>
+                                <th class="text-center">请款金额</th>
+                                <th class="text-center">发票金额</th>
+                                <th class="text-center">请款时间</th>
+                                <th class="text-center">请款说明</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for req in reqs %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td><a href="{% url 'requisitions:req_edit' contract.id req.id %}">{{ req.amount|comma }}</a></td>
+                                    <td>{{ req.invoice|comma }}</td>
+                                    <td>{{ req.payday|date:"Y-m-d" }}</td>
+                                    <td>{{ req.text }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <h3 class="text-center">无请款记录</h3>
+                    {% endif %}
+                    </div>
+                </div>
+                <hr>
+                <form action="." method="post">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell">
+                        <h3 class="text-center">新增请款记录</h3>
+                    </div>
+                    {% for field in form %}
+                    <div class="cell medium-3 medium-text-center">{{ field.label_tag }}</div>
+                    <div class="cell medium-6 larget-3">{{ field }}</div>
+                    <div class="cell medium-3 larget-3">{{ field.errors }}</div>
+                    {% endfor %}
+                    <div class="cell text-center">{{ form.non_field_errors }}</div>
+                    {% csrf_token %}
+                    <div class="cell text-center">
+                        <input type="submit" class="button" value="提交">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js_code %}
+    <script src="{% static 'js/contracts/contract_form.js' %}"></script>
+{% endblock %}

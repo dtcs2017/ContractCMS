@@ -1,7 +1,8 @@
 from django.db import models
-from decimal import Decimal
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
+from django.db.models import Sum
+from decimal import Decimal
 
 
 class Company(models.Model):
@@ -95,6 +96,21 @@ class Contract(models.Model):
         if self.hassupple():
             return Contract.objects.filter(master=self.id)
         return None
+
+    def total_requisition(self):
+        if self.requisitions.all().count():
+            reqs = self.requisitions.all().aggregate(Sum('amount'))['amount__sum']
+            return reqs
+        else:
+            return None
+
+    def requisition_rate(self):
+        if self.definite and self.total_requisition():
+            return self.total_requisition() / self.definite
+        elif self.amount and self.total_requisition():
+            return self.total_requisition() / self.amount
+        else:
+            return None
 
     class Meta:
         ordering = ('subject', 'created')
