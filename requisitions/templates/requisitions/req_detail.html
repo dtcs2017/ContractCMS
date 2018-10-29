@@ -39,7 +39,7 @@
                             <div class="cell">
                                 <h3 class="">合同款项信息</h3>
                             </div>
-                            <table class="hover stack">
+                            <table class="responsive-card-table unstriped">
                                 <thead>
                                 <tr>
                                     <th class="text-center">原始金额</th>
@@ -52,16 +52,16 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>{{ contract.amount|comma }}</td>
-                                    <td>{% if contract.definite %}{{ contract.definite|comma }}{% endif %}</td>
-                                    <td>{% if contract.total_requisition %}
+                                    <td data-label="原始金额" >{{ contract.amount|comma }}</td>
+                                    <td data-label="决算金额" >{% if contract.definite %}{{ contract.definite|comma }}{% endif %}</td>
+                                    <td data-label="累计请款" >{% if contract.total_requisition %}
                                         {{ contract.total_requisition|comma }}
                                     {% endif %}</td>
-                                    <td>{% if contract.requisition_rate %}{% if contract.requisition_rate > 1 %}
+                                    <td data-label="请款比例" >{% if contract.requisition_rate %}{% if contract.requisition_rate > 1 %}
                                         <span class="alert-color"><i class="fi-alert"></i></span>{% endif %}
                                         {{ contract.requisition_rate|rate }}{% endif %}</td>
-                                    <td>待编写</td>
-                                    <td>待编写</td>
+                                    <td data-label="累计付款" >待编写</td>
+                                    <td data-label="付款比例"  >待编写</td>
 
                                 </tr>
                                 </tbody>
@@ -73,11 +73,11 @@
                     </div>
                 </div>
                 <hr>
-                <div class="grid-x grid-padding-x">
+                <div class="grid-x grid-padding-x text-center">
                     <div class="cell">
                     {% if reqs.count %}
                         <h3 class="text-center">合同请款记录</h3>
-                        <table class="hover stack text-center">
+                        <table class="responsive-card-table unstriped">
                             <thead>
                             <tr>
                                 <th class="text-center">序号</th>
@@ -90,11 +90,11 @@
                             <tbody>
                             {% for req in reqs %}
                                 <tr>
-                                    <td>{{ forloop.counter }}</td>
-                                    <td><a href="{% url 'requisitions:req_edit' contract.id req.id %}">{{ req.amount|comma }}</a></td>
-                                    <td>{{ req.invoice|comma }}</td>
-                                    <td>{{ req.payday|date:"Y-m-d" }}</td>
-                                    <td>{{ req.text }}</td>
+                                    <td data-label="序号" >{{ forloop.counter }}</td>
+                                    <td data-label="请款金额" ><a href="{% url 'requisitions:req_edit' contract.id req.id %}">{{ req.amount|comma }}</a></td>
+                                    <td data-label="发票金额" >{{ req.invoice|comma }}</td>
+                                    <td data-label="请款时间" >{{ req.payday|date:"Y-m-d" }}</td>
+                                    <td data-label="请款说明" >{{ req.text }}</td>
                                 </tr>
                             {% endfor %}
                             </tbody>

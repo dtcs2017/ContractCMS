@@ -42,7 +42,7 @@
                             <h1><span class="primary-color">{% if subject %}{{ subject.name }}{% endif %}</span>合同列表
                             </h1>
 
-                            <table class="hover stack">
+                            <table class="responsive-card-table unstriped">
                                 <thead>
                                 <tr>
                                     <th class="text-center">索引</th>
@@ -60,16 +60,16 @@
                                 {% for contract in contracts %}
 
                                     <tr>
-                                        <td class="text-center hide-for-large">{{ contract.index }}</td>
-                                        <td class="text-left show-for-large">{{ contract.index }}</td>
-                                        <td><a href="{{ contract.get_absolute_url }}">{{ contract.name }}</a></td>
-                                        <td>{{ contract.supplier }}</td>
-                                        <td>{{ contract.amount|comma }}</td>
-                                        <td>{% if contract.definite %}{{ contract.definite|comma }}{% endif %}</td>
-                                        <td><a href="{% url 'requisitions:req_detail' contract.id %}">{% if contract.total_requisition %}{{ contract.total_requisition|comma }}{% endif %}</a></td>
-                                        <td>{% if contract.requisition_rate %}{% if contract.requisition_rate > 1 %}<span class="alert-color"><i class="fi-alert"></i></span>{% endif %}{{ contract.requisition_rate|rate }}{% endif %}</td>
-                                        <td class="hide-for-small-only">{{ contract.sign|date:"Y-m-d" }}</td>
-                                        <td class="hide-for-small-only">
+                                        <td data-label="索引" class="text-center hide-for-large">{{ contract.index }}</td>
+                                        <td data-label="索引" class="text-left show-for-large">{{ contract.index }}</td>
+                                        <td data-label="合同名称"><a href="{{ contract.get_absolute_url }}">{{ contract.name }}</a></td>
+                                        <td data-label="供应商名称">{{ contract.supplier }}</td>
+                                        <td data-label="合同金额">{{ contract.amount|comma }}</td>
+                                        <td data-label="决算金额">{% if contract.definite %}{{ contract.definite|comma }}{% endif %}</td>
+                                        <td data-label="请款金额"><a href="{% url 'requisitions:req_detail' contract.id %}">{% if contract.total_requisition %}{{ contract.total_requisition|comma }}{% endif %}</a></td>
+                                        <td data-label="请款比例">{% if contract.requisition_rate %}{% if contract.requisition_rate > 1 %}<span class="alert-color"><i class="fi-alert"></i></span>{% endif %}{{ contract.requisition_rate|rate }}{% endif %}</td>
+                                        <td data-label="签订时间" class="hide-for-small-only">{{ contract.sign|date:"Y-m-d" }}</td>
+                                        <td data-label="有效" class="hide-for-small-only">
                                             {% if contract.active %} <i class="fi-check success-color"></i>
                                             {% else %}<i class="fi-x alert-color"></i>
                                             {% endif %}
@@ -77,17 +77,17 @@
                                     </tr>
                                     {% if contract.supple_contracts %}
                                         {% for supple in contract.supple_contracts %}
-                                            <tr>
-                                        <td class="text-center hide-for-large">{{ supple.index }}</td>
-                                        <td class="text-left show-for-large">{{ supple.index }}</td>
-                                        <td><a href="{{ supple.get_absolute_url }}">{{ supple.name }}</a></td>
-                                        <td>{{ supple.supplier }}</td>
-                                        <td>{{ supple.amount|comma }}</td>
-                                        <td>{% if supple.definite %}{{ supple.definite|comma }}{% endif %}</td>
-                                        <td><a href="{% url 'requisitions:req_detail' supple.id %}">{% if supple.total_requisition %}{{ supple.total_requisition|comma }}{% endif %}</a></td>
-                                        <td>{% if supple.requisition_rate %}{% if supple.requisition_rate > 1 %}<span class="alert-color"><i class="fi-alert"></i></span>{% endif %}{{ supple.requisition_rate|rate }}{% endif %}</td>
-                                        <td class="hide-for-small-only">{{ supple.sign|date:"Y-m-d" }}</td>
-                                        <td class="hide-for-small-only">
+                                    <tr>
+                                        <td data-label="索引"  class="text-center hide-for-large">{{ supple.index }}</td>
+                                        <td data-label="索引"  class="text-left show-for-large">{{ supple.index }}</td>
+                                        <td data-label="合同名称" ><a href="{{ supple.get_absolute_url }}">{{ supple.name }}</a></td>
+                                        <td data-label="供应商名称" >{{ supple.supplier }}</td>
+                                        <td data-label="合同金额" >{{ supple.amount|comma }}</td>
+                                        <td data-label="决算金额" >{% if supple.definite %}{{ supple.definite|comma }}{% endif %}</td>
+                                        <td data-label="请款金额" ><a href="{% url 'requisitions:req_detail' supple.id %}">{% if supple.total_requisition %}{{ supple.total_requisition|comma }}{% endif %}</a></td>
+                                        <td data-label="请款比例" >{% if supple.requisition_rate %}{% if supple.requisition_rate > 1 %}<span class="alert-color"><i class="fi-alert"></i></span>{% endif %}{{ supple.requisition_rate|rate }}{% endif %}</td>
+                                        <td data-label="签订时间"  class="hide-for-small-only">{{ supple.sign|date:"Y-m-d" }}</td>
+                                        <td data-label="有效"  class="hide-for-small-only">
                                             {% if supple.active %} <i class="fi-check success-color"></i>
                                             {% else %}<i class="fi-x alert-color"></i>
                                             {% endif %}
