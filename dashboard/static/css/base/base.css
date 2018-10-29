@@ -55,6 +55,10 @@ box-shadow: 1px 1px 3px 1px #aaaaaa;
     color: #cc4b37!important;
 }
 
+.warn-color {
+    color: #ffae00!important;
+}
+
 /*所有表单错误信息*/
 form ul.errorlist {
     list-style: none;

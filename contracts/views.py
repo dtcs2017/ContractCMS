@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 # 自定义权限管理的装饰器：
-# from account.permission_decortor import contractor_only
+from account.permission_decortor import contractor_only
 
 
 def contract_list(request, subject_id=None):
@@ -36,7 +36,7 @@ def contract_detail(request, contract_id):
 
 
 @login_required
-# @contractor_only
+@contractor_only
 def contract_add(request, master_id=None):
     contract = None
     warn = None
@@ -69,7 +69,7 @@ def contract_add(request, master_id=None):
 
 
 @login_required
-# @contractor_only
+@contractor_only
 def contract_edit(request, contract_id):
     if request.method == "GET":
         contract = get_object_or_404(Contract, id=contract_id)

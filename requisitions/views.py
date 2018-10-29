@@ -4,8 +4,12 @@ from .forms import RequisitionForm
 from django.contrib import messages
 from django.urls import reverse
 from .models import Requisition
+from django.contrib.auth.decorators import login_required
+from account.permission_decortor import contractor_only
+from django.core.exceptions import PermissionDenied
 
 
+@login_required
 def requisition_detail(request, contract_id):
     """
     用于返回当前合同的详情和接受 POST 请求添加新记录
@@ -21,6 +25,8 @@ def requisition_detail(request, contract_id):
         return render(request, 'requisitions/req_detail.html', {"contract": contract, 'reqs': reqs, 'form': form})
 
     else:
+        if not (request.user.is_contractor or request.user.is_engineer):
+            raise PermissionDenied
         contract = get_object_or_404(Contract, id=contract_id)
         reqs = contract.requisitions.all()
         form = RequisitionForm(request.POST)
@@ -32,7 +38,8 @@ def requisition_detail(request, contract_id):
             return redirect(reverse('requisitions:req_detail', args=[contract.id]))
         return render(request, 'requisitions/req_detail.html', {"contract": contract, 'reqs': reqs, 'form': form})
 
-
+@login_required
+@contractor_only
 def requisition_edit(request, contract_id, req_id):
     if request.method == "GET":
         contract = get_object_or_404(Contract, id=contract_id)
