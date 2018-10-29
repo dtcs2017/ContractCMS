@@ -8,7 +8,7 @@
                 <p class="subheader hide-for-small-only h4">快速、准确记录合同信息和查看付款进度</p>
             </div>
             <div class="medium-4 cell">
-                <form action="#" method="post">
+                <form action="{% url 'contracts:contract_list' %}" method="post">
                     <div class="input-group">
                         <input class="input-group-field" placeholder="合同或供应商..." type="search" name="search">
                         {% csrf_token %}

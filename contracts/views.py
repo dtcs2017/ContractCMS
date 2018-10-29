@@ -4,6 +4,7 @@ from .forms import ContractForm
 from django.contrib import messages
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 
 def contract_list(request, subject_id=None):
@@ -18,11 +19,13 @@ def contract_list(request, subject_id=None):
                       {'subjects': subjects, 'contracts': contracts, 'subject': subject})
 
     else:
-        print('收到POST请求,待开发查询功能')
+        search = request.POST.get('search', None)
+        if not search:
+            return redirect(reverse('contracts:contract_list'))
         subjects = Subject.objects.all().order_by('created')
-        contracts = Contract.objects.all()
-        return render(request, 'contracts/contracts_list.html',
-                      {'subjects': subjects, 'contracts': contracts})
+        contracts = Contract.objects.filter(Q(name__contains=search) | Q(supplier__contains=search)).distinct()
+        return render(request, 'contracts/contracts_search.html',
+                      {'subjects': subjects, 'contracts': contracts, 'search': search})
 
 
 def contract_detail(request, contract_id):
@@ -43,9 +46,9 @@ def contract_add(request, master_id=None):
         form = ContractForm(request.POST)
         if form.is_valid():
             new_contract = form.save(commit=False)
-            index = '上海' + new_contract.company.name + '(' + new_contract.sign.strftime(
+            index = new_contract.company.name + '(' + new_contract.sign.strftime(
                 "%Y") + ')' + '-' + new_contract.subject.tag + '-' + str(
-                Contract.objects.filter(subject=new_contract.subject).count() + 1).zfill(4)
+                Contract.objects.filter(subject=new_contract.subject).filter(master__isnull=True).count() + 1).zfill(4)
             master_contract_id = request.POST.get('master', None)
             if master_contract_id:
                 new_contract.master = int(master_contract_id)

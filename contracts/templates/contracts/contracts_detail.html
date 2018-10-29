@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% load contracts_tag %}
 {% block title %}
-{{ contract.name }}合同详情
+    {{ contract.name }}合同详情
 {% endblock %}
 
 {% block nav %}
@@ -70,22 +70,39 @@
                                 <h3 class="">其他信息</h3>
                             </div>
 
-                            <div class="cell medium-6"><p><strong>是否补充合同：</strong>{% if contract.is_supple %}
-                                <i class="fi-check success-color" ></i>
-                            {% else %}<i class="fi-x alert-color"></i>
-                            {% endif %}</p></div>
 
-                            {% if contract.is_supple %}
-                            <div class="cell medium-6"><p><strong>主合同：</strong><a href="{{ contract.master_name.get_absolute_url }}">{{ contract.master_name.name }}</a></p></div>
-                            {% endif %}
+                            <div class="cell medium-6">
+                                {% if contract.is_supple %}
+                                    <p>
+                                        <strong>本合同的主合同：</strong>
+                                        <a href="{{ contract.master_contract.get_absolute_url }}">{{ contract.master_contract.name }}</a>
+                                    </p>
+                                {% else %}
+                                    <p>
+                                        <strong>本合同是补充合同：</strong>
+                                        <i class="fi-x alert-color"></i>
+                                    </p>
+                                {% endif %}
+                            </div>
 
-                            <div class="cell medium-6"><p><strong>是否有补充合同：</strong>{% if contract.hassupple %}
-                                <i class="fi-check success-color"></i>
-                            {% else %}<i class="fi-x alert-color"></i>
-                            {% endif %}</p></div>
+                            <div class="cell medium-6">
+                                {% if contract.hassupple %}
+                                    <p>
+                                        <strong>本合同有补充合同：</strong>
+                                        {% for supple in contract.supple_contracts %}
+                                            <a href="{% url 'contracts:contract_detail' supple.id %}">{{ supple.name }}</a>
+                                        {% endfor %}
+                                    </p>
+                                {% else %}
+                                    <p>
+                                        <strong>本合同有补充合同：</strong>
+                                        <i class="fi-x alert-color"></i>
+                                    </p>
+                                {% endif %}
+                            </div>
 
                             <div class="cell medium-6"><p><strong>是否甲供材合同：</strong>{% if contract.jgc %}
-                                <i class="fi-check success-color" ></i>
+                                <i class="fi-check success-color"></i>
                             {% else %}<i class="fi-x alert-color"></i>
                             {% endif %}</p></div>
                             <div class="cell medium-6"><p><strong>合同录入时间：</strong>{{ contract.created|date:"Y-m-d" }}

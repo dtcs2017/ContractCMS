@@ -23,7 +23,7 @@
     <div class="top-bar-right">
         <ul class="menu vertical medium-horizontal">
             <li>
-                <form action="#" method="post">
+                <form action="{% url 'contracts:contract_list' %}" method="post">
                     {% csrf_token %}
                     <button style="display: inline-block" type="submit" class="button"><i class="fi-magnifying-glass"></i></button>
                     <input style="display:inline;" name="search" type="search" placeholder="合同或供应商...">
