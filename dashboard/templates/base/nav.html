@@ -1,4 +1,6 @@
 <!-- Start Top Bar -->
+    <form action="{% url 'contracts:contract_list' %}" method="post">
+
 <div class="title-bar" data-responsive-toggle="mainNavigation" data-hide-for="medium"
      style="background-color: #5e5e5e;">
     <div class="title-bar-left">
@@ -20,24 +22,27 @@
             <li><a href="#">付款记录</a></li>
         </ul>
     </div>
-    <div class="top-bar-right">
-        <ul class="menu vertical medium-horizontal">
-            <li>
-                <form action="{% url 'contracts:contract_list' %}" method="post">
-                    {% csrf_token %}
-                    <button style="display: inline-block" type="submit" class="button"><i class="fi-magnifying-glass"></i></button>
-                    <input style="display:inline;" name="search" type="search" placeholder="合同或供应商...">
-                </form>
-            </li>
+        {% csrf_token %}
+        <div class="top-bar-right">
+            <ul class="menu vertical medium-horizontal">
+                <li>
+                    <input name="search" type="search" placeholder="合同或供应商...">
+                </li>
+                <li>
+                    <button type="submit" class="button">
+                        <i class="fi-magnifying-glass"></i>
+                    </button>
+                </li>
 
-            {% if user.is_authenticated %}
-                <li class="menu-text hide-for-small-only">欢迎&nbsp;{{ user.username }}</li>
-                <li><a href="{% url 'logout' %}?next={{ request.path }}">登出</a></li>
-            {% else %}
-                <li><a href="{% url 'login' %}?next={{ request.path }}">登录</a></li>
-                <li><a href="{% url 'account:register' %}">注册</a></li>
-            {% endif %}
-        </ul>
-    </div>
+                {% if user.is_authenticated %}
+                    <li class="menu-text hide-for-small-only">欢迎&nbsp;{{ user.username }}</li>
+                    <li><a href="{% url 'logout' %}?next={{ request.path }}">登出</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}?next={{ request.path }}">登录</a></li>
+                    <li><a href="{% url 'account:register' %}">注册</a></li>
+                {% endif %}
+            </ul>
+        </div>
 </div>
+    </form>
 <!-- End Top Bar -->

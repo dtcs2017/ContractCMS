@@ -46,7 +46,7 @@
                                 <thead>
                                 <tr>
                                     <th class="text-center">索引</th>
-                                    <th class="text-center">合同名称</th>
+                                    <th class="text-center"><span data-tooltip tabindex="1" title="点击合同名进入详情页">合同名称</span></th>
                                     <th class="text-center">供应商名称</th>
                                     <th class="text-center">合同金额</th>
                                     <th class="text-center">决算金额</th>
@@ -71,6 +71,25 @@
                                             {% endif %}
                                         </td>
                                     </tr>
+                                    {% if contract.supple_contracts %}
+                                        {% for supple in contract.supple_contracts %}
+                                            <tr>
+                                        <td class="text-center hide-for-large">{{ supple.index }}</td>
+                                        <td class="text-left show-for-large">{{ supple.index }}</td>
+                                        <td><a href="{{ supple.get_absolute_url }}">{{ supple.name }}</a></td>
+                                        <td>{{ supple.supplier }}</td>
+                                        <td>{{ supple.amount|comma }}</td>
+                                        <td>{% if supple.definite %}{{ supple.definite|comma }}{% endif %}</td>
+                                        <td class="hide-for-small-only">{{ supple.sign|date:"Y-m-d" }}</td>
+                                        <td class="hide-for-small-only">
+                                            {% if supple.active %} <i class="fi-check success-color"></i>
+                                            {% else %}<i class="fi-x alert-color"></i>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                        {% endfor %}
+
+                                    {% endif %}
                                 {% endfor %}
                                 </tbody>
                             </table>

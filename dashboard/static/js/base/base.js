@@ -1,7 +1,7 @@
-// 消息框在底部中央，5秒钟后消失
+// 消息框在底部中央，4秒钟后消失
 
 let message = $('.message');
-message.css({bottom: '10%', width: '30%'});
+message.css({bottom: '5%', width: '30%'});
 let viewWidth = $(window).width();
 let messageWidth = message.width();
 let leftPixel = (viewWidth - messageWidth) / 2;

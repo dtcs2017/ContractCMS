@@ -7,9 +7,9 @@
 
 {% block head %}
     <style>
-    body {
-        background-color: #f0f0f0;
-    }
+        body {
+            background-color: #f0f0f0;
+        }
     </style>
 {% endblock %}
 
@@ -45,9 +45,17 @@
             {% csrf_token %}
             <input type="hidden" name="master" value="{{ contract.id }}">
             <div class="grid-x align-center">
-                <div class="cell"><p class="alert-color text-center">合同类别提交后无法修改，录入错误请立刻<a href="#">联系管理员</a></p></div>
+                {% if contract.is_supple %}
+                    <div class="cell">
+                        <p class="alert-color text-center">不能为补充合同添加补充合同</p>
+                    </div>
+                {% else %}
+                    <div class="cell">
+                        <p class="alert-color text-center">合同类别提交后无法修改，录入错误请立刻<a href="#">联系管理员</a></p>
+                    </div>
+                {% endif %}
 
-                <input type="submit" class="button" value="提交">
+                <input type="submit" class="button" value="提交" {% if contract.is_supple %}disabled{% endif %}>
             </div>
         </div>
     </form>

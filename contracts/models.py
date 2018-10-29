@@ -54,8 +54,8 @@ class Stamp(models.Model):
 
 
 class Contract(models.Model):
-    index = models.CharField(max_length=30, verbose_name='索引')
-    name = models.CharField(max_length=40, verbose_name='合同名称', db_index=True)
+    index = models.CharField(max_length=50, verbose_name='索引')
+    name = models.CharField(max_length=50, verbose_name='合同名称', db_index=True)
     supplier = models.CharField(max_length=50, verbose_name='供应商名称', db_index=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='contracts', verbose_name='公司',
                                 default=1)
@@ -97,5 +97,5 @@ class Contract(models.Model):
         return None
 
     class Meta:
-        ordering = ('subject', 'created',)
+        ordering = ('subject', 'created')
         verbose_name = '合同'
