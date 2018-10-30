@@ -16,6 +16,7 @@ class Company(models.Model):
     class Meta:
         ordering = ['created', ]
         verbose_name = '公司'
+        verbose_name_plural = '公司'
 
 
 class Subject(models.Model):
@@ -38,6 +39,7 @@ class Subject(models.Model):
     class Meta:
         ordering = ['created', ]
         verbose_name = '合同种类'
+        verbose_name_plural = '合同种类'
 
 
 class Stamp(models.Model):
@@ -52,6 +54,7 @@ class Stamp(models.Model):
     class Meta:
         ordering = ['created', ]
         verbose_name = '印花税'
+        verbose_name_plural = '印花税'
 
 
 class Contract(models.Model):
@@ -115,3 +118,4 @@ class Contract(models.Model):
     class Meta:
         ordering = ('subject', 'created')
         verbose_name = '合同'
+        verbose_name_plural = '合同'
