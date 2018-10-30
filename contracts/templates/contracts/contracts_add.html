@@ -24,15 +24,13 @@
                 的补充合同{% else %}新增合同{% endif %}</h1>
             {% for field in form %}
                 <div class="grid-x align-center-middle grid-padding-x ">
-                    <div class="cell small-10 medium-2 medium-text-right">
+                    <div class="cell small-10 medium-3 medium-text-right">
                         {{ field.label_tag }}
                     </div>
-                    <div class="cell small-10 medium-5">
+                    <div class="cell small-10 medium-6">
                         {{ field }}
                     </div>
-                </div>
-                <div class="grid-x align-center">
-                    <div class="cell small-10 text-center">
+                    <div class="cell small-10 medium-3 text-center">
                         {{ field.errors }}
                     </div>
                 </div>

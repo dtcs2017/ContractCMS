@@ -37,7 +37,7 @@
 
                         <div class="grid-x text-center">
                             <div class="cell">
-                                <h3 class="">合同款项信息</h3>
+                                <h3 class="type-sidelines"><span>合同款项信息</span></h3>
                             </div>
                             <table class="responsive-card-table unstriped">
                                 <thead>
@@ -72,11 +72,10 @@
 
                     </div>
                 </div>
-                <hr>
                 <div class="grid-x grid-padding-x text-center">
                     <div class="cell">
                     {% if reqs.count %}
-                        <h3 class="text-center">合同请款记录</h3>
+                        <h3 class="text-center type-sidelines"><span>合同请款记录</span></h3>
                         <table class="responsive-card-table unstriped">
                             <thead>
                             <tr>
@@ -104,11 +103,10 @@
                     {% endif %}
                     </div>
                 </div>
-                <hr>
                 <form action="." method="post">
                 <div class="grid-x grid-padding-x align-center-middle">
                     <div class="cell">
-                        <h3 class="text-center">新增请款记录</h3>
+                        <h3 class="text-center type-sidelines"><span>新增请款记录</span></h3>
                     </div>
                     {% for field in form %}
                     <div class="cell medium-3 medium-text-right">{{ field.label_tag }}</div>

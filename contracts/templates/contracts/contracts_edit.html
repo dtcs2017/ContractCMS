@@ -24,26 +24,26 @@
             <h1 class="text-center">修改<span class="primary-color">{{ contract.name }}</span></h1>
             <div class="grid-x align-center-middle grid-padding-x ">
 
-                <div class="cell small-10 medium-2 medium-text-right">
+                <div class="cell small-10 medium-3 medium-text-right">
                     <label for="id_index">索引:</label>
                 </div>
-                <div class="cell small-10 medium-5">
+                <div class="cell small-10 medium-6">
                     <input type="text" name="index" value="{{ contract.index }}" readonly id="id_index">
                 </div>
+                <div class="cell small-10 medium-3"></div>
             </div>
             {% for field in form %}
 
                 <div class="grid-x align-center-middle grid-padding-x ">
 
-                    <div class="cell small-10 medium-2 medium-text-right">
+                    <div class="cell small-10 medium-3 medium-text-right">
                         {{ field.label_tag }}
                     </div>
-                    <div class="cell small-10 medium-5">
+                    <div class="cell small-10 medium-6">
                         {{ field }}
                     </div>
-                </div>
-                <div class="grid-x align-center">
-                    <div class="cell small-10 text-center">
+
+                    <div class="cell small-10 medium-3 text-center">
                         {{ field.errors }}
                     </div>
                 </div>

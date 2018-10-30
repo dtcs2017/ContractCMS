@@ -187,7 +187,7 @@ form ul.errorlist {
 }
 /*-----------------*/
 .rounded-social-buttons .social-button.qq {
-  background: #3b5998;
+  background: rgb(21,148,211);
 }
 
 .rounded-social-buttons .social-button.qq:before {
@@ -196,9 +196,9 @@ form ul.errorlist {
 }
 
 .rounded-social-buttons .social-button.qq:hover, .rounded-social-buttons .social-button.facebook:focus {
-  color: #3b5998;
+  color: rgb(21,148,211);
   background: #fefefe;
-  border-color: #3b5998;
+  border-color: rgb(21,148,211);
 }
 
 
@@ -217,6 +217,21 @@ form ul.errorlist {
   color: #55acee;
   background: #fefefe;
   border-color: #55acee;
+}
+
+.rounded-social-buttons .social-button.weixin {
+  background: #348903;
+}
+
+.rounded-social-buttons .social-button.weixin:before {
+  font-family: "FontAwesome";
+  content: "\f1d7";
+}
+
+.rounded-social-buttons .social-button.weixin:hover, .rounded-social-buttons .social-button.twitter:focus {
+  color: #348903;
+  background: #fefefe;
+  border-color: #348903;
 }
 
 .rounded-social-buttons .social-button.linkedin {
@@ -250,7 +265,7 @@ form ul.errorlist {
 }
 
 .rounded-social-buttons .social-button.mail {
-  background: #125688;
+  background: rgb(192,48,48);
 }
 
 .rounded-social-buttons .social-button.mail:before {
@@ -259,9 +274,9 @@ form ul.errorlist {
 }
 
 .rounded-social-buttons .social-button.mail:hover, .rounded-social-buttons .social-button.instagram:focus {
-  color: #125688;
+  color: rgb(192,48,48);
   background: #fefefe;
-  border-color: #125688;
+  border-color: rgb(192,48,48);
 }
 
 .rounded-social-buttons .social-button.pinterest {
