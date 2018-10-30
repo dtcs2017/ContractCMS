@@ -16,5 +16,4 @@ def register(request):
         messages.error(request,'请检查表单是否正确填写')
     else:
         form = UserRegisterForm()
-        messages.success(request,'测试消息')
     return render(request, 'account/register.html', {"form": form})

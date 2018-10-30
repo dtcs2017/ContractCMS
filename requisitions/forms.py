@@ -5,4 +5,4 @@ from .models import Requisition
 class RequisitionForm(forms.ModelForm):
     class Meta:
         model = Requisition
-        fields = ('amount','invoice','payday','text')
+        fields = ('amount', 'invoice', 'payday', 'text')
