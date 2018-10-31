@@ -39,7 +39,6 @@ def contract_detail(request, contract_id):
 @contractor_only
 def contract_add(request, master_id=None):
     contract = None
-    warn = None
     if request.method == 'GET':
         form = ContractForm()
         if master_id:
