@@ -24,8 +24,8 @@ def requisition_detail(request, contract_id):
         return render(request, 'requisitions/req_detail.html', {"contract": contract, 'reqs': reqs, 'form': form})
 
     else:
-        if not (request.user.is_contractor or request.user.is_engineer):
-            raise PermissionDenied
+        # if not (request.user.is_contractor or request.user.is_engineer):
+        #     raise PermissionDenied
         contract = get_object_or_404(Contract, id=contract_id)
         reqs = contract.requisitions.all()
         form = RequisitionForm(request.POST)

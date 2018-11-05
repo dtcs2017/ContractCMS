@@ -36,7 +36,7 @@ def contract_detail(request, contract_id):
 
 
 @login_required
-@contractor_only
+# @contractor_only
 def contract_add(request, master_id=None):
     contract = None
     if request.method == 'GET':
@@ -68,7 +68,7 @@ def contract_add(request, master_id=None):
 
 
 @login_required
-@contractor_only
+# @contractor_only
 def contract_edit(request, contract_id):
     if request.method == "GET":
         contract = get_object_or_404(Contract, id=contract_id)

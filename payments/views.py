@@ -25,8 +25,8 @@ def payment_detail(request, contract_id):
         return render(request, 'payments/payment_detail.html',
                       {'contract': contract, 'payments': payments, 'form': form})
     else:
-        if not request.user.is_accountant:
-            raise PermissionDenied
+        # if not request.user.is_accountant:
+        #     raise PermissionDenied
         contract = get_object_or_404(Contract, id=contract_id)
         payments = contract.payments.all()
         form = PaymentForm(request.POST)
@@ -42,7 +42,7 @@ def payment_detail(request, contract_id):
 
 
 @login_required
-@accountant_only
+# @accountant_only
 def payment_edit(request, contract_id, payment_id):
     if request.method == "GET":
         contract = get_object_or_404(Contract, id=contract_id)
