@@ -5,7 +5,6 @@ from django.contrib import messages
 from django.urls import reverse
 from .models import Requisition
 from django.contrib.auth.decorators import login_required
-from account.permission_decortor import contractor_only
 from django.core.exceptions import PermissionDenied
 
 
@@ -34,13 +33,16 @@ def requisition_detail(request, contract_id):
             new_req = form.save(commit=False)
             new_req.contract = contract
             new_req.save()
-            messages.success(request, '成功新增请款记录')
+            messages.success(request, '成功添加请款记录')
             return redirect(reverse('requisitions:req_detail', args=[contract.id]))
         return render(request, 'requisitions/req_detail.html', {"contract": contract, 'reqs': reqs, 'form': form})
 
+
 @login_required
-@contractor_only
 def requisition_edit(request, contract_id, req_id):
+    if not (request.user.is_contractor or request.user.is_engineer):
+        raise PermissionDenied
+
     if request.method == "GET":
         contract = get_object_or_404(Contract, id=contract_id)
         req = get_object_or_404(Requisition, id=req_id)

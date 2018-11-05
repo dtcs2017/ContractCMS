@@ -52,6 +52,8 @@
                                     <th class="text-center">决算金额</th>
                                     <th class="text-center"><span data-tooltip tabindex="2" title="点击金额查看请款详情">请款金额</span></th>
                                     <th class="text-center">请款比例</th>
+                                    <th class="text-center"><span data-tooltip tabindex="2" title="点击金额查看付款详情">付款金额</span></th>
+                                    <th class="text-center">付款比例</th>
                                     <th class="text-center hide-for-small-only">签订时间</th>
                                     <th class="text-center hide-for-small-only">有效</th>
                                 </tr>
@@ -68,6 +70,8 @@
                                         <td data-label="决算金额">{% if contract.definite %}{{ contract.definite|comma }}{% endif %}</td>
                                         <td data-label="请款金额"><a href="{% url 'requisitions:req_detail' contract.id %}">{% if contract.total_requisition %}{{ contract.total_requisition|comma }}{% endif %}</a></td>
                                         <td data-label="请款比例">{% if contract.requisition_rate %}{% if contract.requisition_rate > 1 %}<span class="alert-color"><i class="fi-alert"></i></span>{% endif %}{{ contract.requisition_rate|rate }}{% endif %}</td>
+                                        <td data-label="付款金额"><a href="{% url 'payments:payment_detail' contract.id %}">{% if contract.total_payment %}{{ contract.total_payment|comma }}{% endif %}</a></td>
+                                        <td data-label="付款比例">{% if contract.payment_rate %}{% if contract.payment_rate > 1 %}<span class="alert-color"><i class="fi-alert"></i></span>{% endif %}{{ contract.payment_rate|rate }}{% endif %}</td>
                                         <td data-label="签订时间" class="hide-for-small-only">{{ contract.sign|date:"Y-m-d" }}</td>
                                         <td data-label="有效" class="hide-for-small-only">
                                             {% if contract.active %} <i class="fi-check success-color"></i>
@@ -86,6 +90,8 @@
                                         <td data-label="决算金额" >{% if supple.definite %}{{ supple.definite|comma }}{% endif %}</td>
                                         <td data-label="请款金额" ><a href="{% url 'requisitions:req_detail' supple.id %}">{% if supple.total_requisition %}{{ supple.total_requisition|comma }}{% endif %}</a></td>
                                         <td data-label="请款比例" >{% if supple.requisition_rate %}{% if supple.requisition_rate > 1 %}<span class="alert-color"><i class="fi-alert"></i></span>{% endif %}{{ supple.requisition_rate|rate }}{% endif %}</td>
+                                        <td data-label="付款金额" ><a href="{% url 'payments:payment_detail' supple.id %}">{% if supple.total_payment %}{{ supple.total_payment|comma }}{% endif %}</a></td>
+                                        <td data-label="付款比例" >{% if supple.payment_rate %}{% if supple.payment_rate > 1 %}<span class="alert-color"><i class="fi-alert"></i></span>{% endif %}{{ supple.payment_rate|rate }}{% endif %}</td>
                                         <td data-label="签订时间"  class="hide-for-small-only">{{ supple.sign|date:"Y-m-d" }}</td>
                                         <td data-label="有效"  class="hide-for-small-only">
                                             {% if supple.active %} <i class="fi-check success-color"></i>

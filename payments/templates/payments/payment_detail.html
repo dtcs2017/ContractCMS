@@ -2,7 +2,7 @@
 {% load contracts_tag %}
 {% load static %}
 {% block title %}
-    {{ contract.name }}请款详情
+    {{ contract.name }}付款详情
 {% endblock %}
 
 
@@ -25,7 +25,7 @@
                             <hr>
                             <a href="{% url 'contracts:contract_detail' contract.id %}">查看合同详情</a>
                             <hr>
-                            <a href="{% url 'payments:payment_detail' contract.id %}">查看付款详情</a>
+                            <a href="{% url 'requisitions:req_detail' contract.id %}">查看请款详情</a>
                         </div>
                     </li>
                 </ul>
@@ -35,7 +35,7 @@
             <div class="cell large-10">
                 <div class="grid-x grid-padding-x ">
                     <div class="cell">
-                        <h1 class="text-center"><span class="primary-color">{{ contract.name }}</span>请款详情</h1>
+                        <h1 class="text-center"><span class="primary-color">{{ contract.name }}</span>付款详情</h1>
 
                         <div class="grid-x text-center">
                             <div class="cell">
@@ -54,12 +54,12 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td data-label="原始金额" >{{ contract.amount|comma }}</td>
-                                    <td data-label="决算金额" >{% if contract.definite %}{{ contract.definite|comma }}{% endif %}</td>
-                                    <td data-label="累计请款" >{% if contract.total_requisition %}
+                                    <td data-label="原始金额">{{ contract.amount|comma }}</td>
+                                    <td data-label="决算金额">{% if contract.definite %}{{ contract.definite|comma }}{% endif %}</td>
+                                    <td data-label="累计请款">{% if contract.total_requisition %}
                                         {{ contract.total_requisition|comma }}
                                     {% endif %}</td>
-                                    <td data-label="请款比例" >{% if contract.requisition_rate %}{% if contract.requisition_rate > 1 %}
+                                    <td data-label="请款比例">{% if contract.requisition_rate %}{% if contract.requisition_rate > 1 %}
                                         <span class="alert-color"><i class="fi-alert"></i></span>{% endif %}
                                         {{ contract.requisition_rate|rate }}{% endif %}</td>
                                     <td data-label="累计付款">{% if contract.total_payment %}{{ contract.total_payment|comma }}
@@ -79,39 +79,39 @@
                 </div>
                 <div class="grid-x grid-padding-x text-center">
                     <div class="cell">
-                    {% if reqs.count %}
-                        <h3 class="text-center type-sidelines"><span>合同请款记录</span></h3>
+                    {% if payments.count %}
+                        <h3 class="text-center type-sidelines"><span>合同付款记录</span></h3>
                         <table class="responsive-card-table unstriped">
                             <thead>
                             <tr>
                                 <th class="text-center">序号</th>
-                                <th class="text-center">请款金额</th>
-                                <th class="text-center">发票金额</th>
-                                <th class="text-center">请款时间</th>
-                                <th class="text-center">请款说明</th>
+                                <th class="text-center">付款金额</th>
+                                <th class="text-center">付款时间</th>
+                                <th class="text-center">凭证号</th>
+                                <th class="text-center">付款说明</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {% for req in reqs %}
+                            {% for payment in payments %}
                                 <tr>
                                     <td data-label="序号" >{{ forloop.counter }}</td>
-                                    <td data-label="请款金额" ><a href="{% url 'requisitions:req_edit' contract.id req.id %}">{{ req.amount|comma }}</a></td>
-                                    <td data-label="发票金额" >{{ req.invoice|comma }}</td>
-                                    <td data-label="请款时间" >{{ req.payday|date:"Y-m-d" }}</td>
-                                    <td data-label="请款说明" >{{ req.text }}</td>
+                                    <td data-label="付款金额" ><a href="{% url 'payments:payment_edit' contract.id payment.id %}">{{ payment.amount|comma }}</a></td>
+                                    <td data-label="请款时间" >{{ payment.payday|date:"Y-m-d" }}</td>
+                                    <td data-label="凭证号" >{% if payment.record %}{{ payment.payday|date:"Y年m月-" }}{{ payment.record }}{% else %}<span class="alert-color"><i class="fi-alert"></i></span>请注意及时补充凭证号{% endif %}</td>
+                                    <td data-label="请款说明" >{{ payment.text }}</td>
                                 </tr>
                             {% endfor %}
                             </tbody>
                         </table>
                     {% else %}
-                        <h3 class="text-center type-sidelines"><span>无请款记录</span></h3>
+                        <h3 class="text-center type-sidelines"><span>无付款记录</span></h3>
                     {% endif %}
                     </div>
                 </div>
                 <form action="." method="post">
                 <div class="grid-x grid-padding-x align-center-middle">
                     <div class="cell">
-                        <h3 class="text-center type-sidelines"><span>新增请款记录</span></h3>
+                        <h3 class="text-center type-sidelines"><span>新增付款记录</span></h3>
                     </div>
                     {% for field in form %}
                     <div class="cell medium-3 medium-text-right">{{ field.label_tag }}</div>

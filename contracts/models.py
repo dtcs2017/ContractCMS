@@ -115,7 +115,22 @@ class Contract(models.Model):
         else:
             return None
 
+    def total_payment(self):
+        if self.payments.all().count():
+            return self.payments.all().aggregate(Sum('amount'))['amount__sum']
+        else:
+            return None
+
+    def payment_rate(self):
+        if self.total_payment() and self.definite:
+            return self.total_payment()/self.definite
+        elif self.total_payment() and self.amount:
+            return self.total_payment() / self.amount
+        else:
+            return None
+
+
     class Meta:
-        ordering = ('subject', 'created')
+        ordering = ('subject','index', 'created')
         verbose_name = '合同'
         verbose_name_plural = '合同'

@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load contracts_tag %}
+{% load static %}
+
+{% block title %}
+    修改付款
+{% endblock %}
+
+{% block head %}
+    <style>
+    body {
+        background-color: #f0f0f0;
+    }
+    </style>
+{% endblock %}
+
+{% block nav %}
+    {% include 'base/nav.html' %}
+{% endblock %}
+
+{% block main %}
+<div class="grid-container">
+    <form action="." method="post">
+        <div class="grid-x grid-padding-x align-center-middle">
+            <div class="cell">
+                <h1 class="text-center">修改<span class="primary-color">{{ contract.name }}</span>的付款记录</h1>
+            </div>
+            {% for field in form %}
+                <div class="cell medium-3 medium-text-center">{{ field.label_tag }}</div>
+                <div class="cell medium-6 larget-3">{{ field }}</div>
+                <div class="cell medium-3 larget-3">{{ field.errors }}</div>
+            {% endfor %}
+            <div class="cell text-center">{{ form.non_field_errors }}</div>
+            {% csrf_token %}
+            <div class="cell text-center">
+                <input type="submit" class="button" value="提交">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+{% block js_code %}
+    <script src="{% static 'js/contracts/contract_form.js' %}"></script>
+{% endblock %}
