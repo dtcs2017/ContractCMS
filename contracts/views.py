@@ -8,6 +8,14 @@ from django.db.models import Q
 # 自定义权限管理的装饰器：
 from account.permission_decortor import contractor_only
 
+import logging
+
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%a, %d %b %Y %H:%M:%S',
+                    filename='cmslog.log',
+                    filemode='a')
+
 
 def contract_list(request, subject_id=None):
     subject = None
@@ -61,6 +69,7 @@ def contract_add(request, master_id=None):
                 index = Contract.objects.get(id=new_contract.master).index + '-补-' + str(supple_count + 1).zfill(4)
             new_contract.index = index
             new_contract.save()
+            logging.info("{} | 添加新合同 | name={} | id={}".format(request.user.username, new_contract.name, new_contract.id))
             messages.success(request, '合同新增成功')
             return redirect(reverse('contracts:contract_detail', args=[new_contract.id]))
         messages.error(request, '请检查填写是否正确')
@@ -85,6 +94,7 @@ def contract_edit(request, contract_id):
             current_contract.index = index
             current_contract.master = master
             current_contract.save()
+            logging.info("{} | 修改合同 | name={} | id={}".format(request.user.username, current_contract.name, current_contract.id))
             messages.success(request, '合同信息修改成功')
             return redirect(reverse('contracts:contract_detail', args=[contract.id]))
         messages.error(request, '请检查填写是否正确')

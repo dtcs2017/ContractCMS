@@ -7,7 +7,13 @@ from django.urls import reverse
 from .models import Payment
 from django.contrib.auth.decorators import login_required
 from account.permission_decortor import accountant_only
+import logging
 
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%a, %d %b %Y %H:%M:%S',
+                    filename='cmslog.log',
+                    filemode='a')
 
 @login_required
 def payment_detail(request, contract_id):
@@ -34,6 +40,7 @@ def payment_detail(request, contract_id):
             new_payment = form.save(commit=False)
             new_payment.contract = contract
             new_payment.save()
+            logging.info("{} | 添加付款记录 | amount={} | id={}".format(request.user.username, new_payment.amount, new_payment.id))
             messages.success(request, '成功添加付款记录')
             return redirect(reverse('payments:payment_detail', args=[contract.id]))
         else:
@@ -58,7 +65,9 @@ def payment_edit(request, contract_id, payment_id):
             current_payment = form.save(commit=False)
             current_payment.contract = contract
             current_payment.save()
+            logging.info("{} | 修改付款记录 | amount={} | id={}".format(request.user.username, current_payment.amount, current_payment.id))
             messages.success(request, '修改付款记录成功')
+
             return redirect(reverse('payments:payment_detail', args=[contract.id]))
         else:
             return render(request, 'payments/payment_detail.html', {'contract': contract, 'form': form})
