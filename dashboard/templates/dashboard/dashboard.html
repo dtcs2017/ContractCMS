@@ -11,7 +11,7 @@
 {% block main %}
     <div class="grid-container">
         <h2>快速开始</h2>
-{#合同信息录入说明部分#}
+        {#合同信息录入说明部分#}
         <h3 class="type-sidelines"><span><i class="fi-page-export primary-color">&nbsp;</i>合同信息录入</span></h3>
         <div class="grid-x medium-up-1 large-up-3 grid-margin-x" data-equalizer>
             <div class="cell ">
@@ -21,10 +21,12 @@
                     </div>
                     <div class="card-section">
                         <h4>新合同</h4>
-                        <p class="h6">进入<a href="{% url 'contracts:contract_list' %}">合同列表</a>页，点击左侧菜单中<span class="h5 label">新增合同</span>，之后录入新合同信息</p>
+                        <p class="h6">进入<a href="{% url 'contracts:contract_list' %}">合同列表</a>页，点击左侧菜单中<span
+                                class="h5 label">新增合同</span>，之后录入新合同信息</p>
                         <hr>
                         <h4>补充合同</h4>
-                        <p>通过搜索或在<a href="{% url 'contracts:contract_list' %}">合同列表</a>页找到合同，点击合同名进入详情页，点击<span class="label">新增补充合同</span></p>
+                        <p>通过搜索或在<a href="{% url 'contracts:contract_list' %}">合同列表</a>页找到合同，点击合同名进入详情页，点击<span
+                                class="label">新增补充合同</span></p>
                     </div>
                 </div>
             </div>
@@ -35,7 +37,8 @@
                     </div>
                     <div class="card-section">
                         <h4>修改合同</h4>
-                        <p>进入<a href="{% url 'contracts:contract_list' %}">合同列表</a>页找到合同，点击合同名进入详情页，点击<span class="label">修改合同</span></p>
+                        <p>进入<a href="{% url 'contracts:contract_list' %}">合同列表</a>页找到合同，点击合同名进入详情页，点击<span
+                                class="label">修改合同</span></p>
                         <p>可以搜索供应商或合同名称快速找到合同</p>
                     </div>
                 </div>
@@ -56,7 +59,7 @@
                 </div>
             </div>
         </div>
-{#请款管理说明部分#}
+        {#请款管理说明部分#}
         <h3 class="type-sidelines"><span><i class="fi-pricetag-multiple primary-color">&nbsp;</i>添加请款记录</span></h3>
         <div class="grid-x medium-up-1 large-up-3 grid-margin-x" data-equalizer>
             <div class="cell ">
@@ -96,16 +99,54 @@
                 </div>
             </div>
         </div>
+
+
+        {#付款管理说明部分#}
+        <h3 class="type-sidelines"><span><i class="fa fa-yen primary-color"></i> 添加付款记录</span></h3>
+        <div class="grid-x medium-up-1 large-up-3 grid-margin-x" data-equalizer>
+            <div class="cell ">
+                <div class="card shadow" data-equalizer-watch>
+                    <div class="card-divider">
+                        <span class="primary-color"><i class="fi-plus"></i></span><span>&nbsp;&nbsp;录入新付款记录</span>
+                    </div>
+                    <div class="card-section">
+                        <h4>新付款记录</h4>
+                        <p class="h6">进入合同详情页，点击左侧菜单中<span class="h5 label">新增付款</span>，之后录入新付款记录</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card shadow" data-equalizer-watch>
+                    <div class="card-divider">
+                        <span class="primary-color"><i class="fi-pencil"></i></span><span>&nbsp;&nbsp;查看和修改付款记录</span>
+                    </div>
+                    <div class="card-section">
+                        <h4>查看付款详情</h4>
+                        <p>通过合同详情页的<span class="h5 label">新增付款</span>，或点击合同列表中的付款金额进入付款详情页</p>
+                        <hr>
+                        <h4>修改付款记录</h4>
+                        <p>在查看付款详情的页面内点击付款记录可以进行修改</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card shadow" data-equalizer-watch>
+                    <div class="card-divider">
+                        <span class="primary-color"><i class="fi-star"></i></span><span>&nbsp;&nbsp;注意事项</span>
+                    </div>
+                    <div class="card-section">
+                        <h4>权限</h4>
+                        <p>仅财务部人员可以添加和修改付款记录</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-{#付款管理说明部分#}
-
-
 
 {% endblock %}
 
 {% block footer %}
-{% include 'base/footer.html' %}
+    {% include 'base/footer.html' %}
 {% endblock %}
 
 
