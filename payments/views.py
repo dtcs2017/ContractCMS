@@ -40,7 +40,7 @@ def payment_detail(request, contract_id):
             new_payment = form.save(commit=False)
             new_payment.contract = contract
             new_payment.save()
-            logging.info("{} | 添加付款记录 | amount={} | id={}".format(request.user.username, new_payment.amount, new_payment.id))
+            logging.info("{} | payment_add | amount={} | id={}".format(request.user.username, new_payment.amount, new_payment.id))
             messages.success(request, '成功添加付款记录')
             return redirect(reverse('payments:payment_detail', args=[contract.id]))
         else:
@@ -65,7 +65,7 @@ def payment_edit(request, contract_id, payment_id):
             current_payment = form.save(commit=False)
             current_payment.contract = contract
             current_payment.save()
-            logging.info("{} | 修改付款记录 | amount={} | id={}".format(request.user.username, current_payment.amount, current_payment.id))
+            logging.info("{} | payment_edit | amount={} | id={}".format(request.user.username, current_payment.amount, current_payment.id))
             messages.success(request, '修改付款记录成功')
 
             return redirect(reverse('payments:payment_detail', args=[contract.id]))
