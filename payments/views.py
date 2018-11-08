@@ -15,6 +15,7 @@ logging.basicConfig(level=logging.INFO,
                     filename='cmslog.log',
                     filemode='a+')
 
+
 @login_required
 def payment_detail(request, contract_id):
     """
@@ -31,8 +32,8 @@ def payment_detail(request, contract_id):
         return render(request, 'payments/payment_detail.html',
                       {'contract': contract, 'payments': payments, 'form': form})
     else:
-        # if not request.user.is_accountant:
-        #     raise PermissionDenied
+        if not request.user.is_accountant:
+            raise PermissionDenied
         contract = get_object_or_404(Contract, id=contract_id)
         payments = contract.payments.all()
         form = PaymentForm(request.POST)
@@ -40,7 +41,8 @@ def payment_detail(request, contract_id):
             new_payment = form.save(commit=False)
             new_payment.contract = contract
             new_payment.save()
-            logging.info("{} | payment_add | amount={} | id={}".format(request.user.username, new_payment.amount, new_payment.id))
+            logging.info("{} | payment_add | amount={} | id={}".format(request.user.username, new_payment.amount,
+                                                                       new_payment.id))
             messages.success(request, '成功添加付款记录')
             return redirect(reverse('payments:payment_detail', args=[contract.id]))
         else:
@@ -49,7 +51,7 @@ def payment_detail(request, contract_id):
 
 
 @login_required
-# @accountant_only
+@accountant_only
 def payment_edit(request, contract_id, payment_id):
     if request.method == "GET":
         contract = get_object_or_404(Contract, id=contract_id)
@@ -65,7 +67,8 @@ def payment_edit(request, contract_id, payment_id):
             current_payment = form.save(commit=False)
             current_payment.contract = contract
             current_payment.save()
-            logging.info("{} | payment_edit | amount={} | id={}".format(request.user.username, current_payment.amount, current_payment.id))
+            logging.info("{} | payment_edit | amount={} | id={}".format(request.user.username, current_payment.amount,
+                                                                        current_payment.id))
             messages.success(request, '修改付款记录成功')
 
             return redirect(reverse('payments:payment_detail', args=[contract.id]))
