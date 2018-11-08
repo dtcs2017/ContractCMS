@@ -68,6 +68,7 @@ class Contract(models.Model):
     amount = models.DecimalField(max_digits=16, decimal_places=2, verbose_name='初始金额')
     definite = models.DecimalField(max_digits=16, decimal_places=2, verbose_name='决算金额', blank=True, null=True)
     active = models.BooleanField(default=True, verbose_name='有效')
+    is_cost = models.BooleanField(default=True,verbose_name='是否进成本')
     jgc = models.BooleanField(default=False, verbose_name='甲供材')
     text = models.TextField(blank=True, null=True, verbose_name='合同条款摘要')
     master = models.PositiveIntegerField(null=True, blank=True, verbose_name='补充合同')

@@ -45,6 +45,10 @@
                                 <i class="fi-check success-color"></i>
                             {% else %}<i class="fi-x alert-color"></i>
                             {% endif %}</p></div>
+                            <div class="cell medium-6"><p><strong>是否入成本：</strong>{% if contract.is_cost %}
+                                <i class="fi-check success-color"></i>
+                            {% else %}<i class="fi-x alert-color"></i>
+                            {% endif %}</p></div>
                             <div class="cell medium-6"><p><strong>合同种类：</strong>{{ contract.subject.full_name }}</p>
                             </div>
                             <div class="cell medium-6"><p><strong>签订日期：</strong>{{ contract.sign|date:"Y-m-d" }}</p>
