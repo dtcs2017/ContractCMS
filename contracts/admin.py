@@ -5,7 +5,7 @@ from requisitions.models import Requisition
 
 @admin.register(Contract)
 class ContractAdmin(admin.ModelAdmin):
-    list_display = ['subject', 'company', 'index', 'name', 'supplier', 'sign', 'amount', 'definite', 'active', 'text',
+    list_display = ['subject', 'company', 'index', 'name', 'supplier', 'sign', 'amount', 'definite', 'active','is_cost', 'text',
                     'jgc', 'stamp', ]
 
 
