@@ -58,8 +58,8 @@
                                                                   title="点击金额查看付款详情">付款金额</span></th>
                                     <th class="text-center">付款比例</th>
                                     <th class="text-center hide-for-small-only">签订时间</th>
-                                    <th class="text-center hide-for-small-only">有效</th>
-                                    <th class="text-center hide-for-small-only">入成本</th>
+                                    <th class="text-center ">有效</th>
+                                    <th class="text-center ">入成本</th>
 
                                 </tr>
                                 </thead>
@@ -91,12 +91,12 @@
                                                 {{ contract.payment_rate|rate }}{% endif %}</td>
                                         <td data-label="签订时间"
                                             class="hide-for-small-only">{{ contract.sign|date:"Y-m-d" }}</td>
-                                        <td data-label="有效" class="hide-for-small-only">
+                                        <td data-label="有效">
                                             {% if contract.active %} <i class="fi-check success-color"></i>
                                             {% else %}<i class="fi-x alert-color"></i>
                                             {% endif %}
                                         </td>
-                                        <td>{% if contract.is_cost %} <i class="fi-check success-color"></i>
+                                        <td data-label="入成本" >{% if contract.is_cost %} <i class="fi-check success-color"></i>
                                         {% else %}<i class="fi-x alert-color"></i>
                                         {% endif %}</td>
                                     </tr>
@@ -131,12 +131,12 @@
                                                     {% endif %}{{ supple.payment_rate|rate }}{% endif %}</td>
                                                 <td data-label="签订时间"
                                                     class="hide-for-small-only">{{ supple.sign|date:"Y-m-d" }}</td>
-                                                <td data-label="有效" class="hide-for-small-only">
+                                                <td data-label="有效" >
                                                     {% if supple.active %} <i class="fi-check success-color"></i>
                                                     {% else %}<i class="fi-x alert-color"></i>
                                                     {% endif %}
                                                 </td>
-                                                <td>{% if supple.is_cost %} <i class="fi-check success-color"></i>
+                                                <td data-label="入成本">{% if supple.is_cost %} <i class="fi-check success-color"></i>
                                                 {% else %}<i class="fi-x alert-color"></i>
                                                 {% endif %}
                                                 </td>
