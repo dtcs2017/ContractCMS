@@ -3,6 +3,10 @@ from .models import User
 
 
 class UserRegisterForm(forms.ModelForm):
+    """
+    此处User类实际是自行替换的ABC类
+    使用自定义验证器验证两个密码是否相同
+    """
     password = forms.CharField(label='密码', widget=forms.PasswordInput)
     password2 = forms.CharField(label='重复密码', widget=forms.PasswordInput)
 

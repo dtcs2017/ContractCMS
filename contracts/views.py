@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 # 自定义权限管理的装饰器：
-from account.permission_decortor import contractor_only
+from account.permission_decorator import contractor_only
 
 import logging
 
@@ -17,8 +17,17 @@ logging.basicConfig(
     filename='cmslog.log',
     filemode='a+')
 
+
 @login_required
 def contract_list(request, subject_id=None):
+    """
+    GET请求返回合同列表页
+    分页功能待添加
+    POST请求为查询合同名称及供应商字段
+    :param request:
+    :param subject_id:
+    :return:
+    """
     subject = None
     if request.method == "GET":
         subjects = Subject.objects.all().order_by('created')
@@ -45,8 +54,15 @@ def contract_list(request, subject_id=None):
                        'contracts': contracts,
                        'search': search})
 
+
 @login_required
 def contract_detail(request, contract_id):
+    """
+    合同详情页视图
+    :param request:
+    :param contract_id:
+    :return:
+    """
     contract = get_object_or_404(Contract, id=contract_id)
     return render(request,
                   'contracts/contracts_detail.html',
@@ -56,6 +72,14 @@ def contract_detail(request, contract_id):
 @login_required
 @contractor_only
 def contract_add(request, master_id=None):
+    """
+    添加合同视图，采用单独页面进行控制
+    无法为补充合同再添加补充合同
+    索引采用新建合同时的类别及其他数据进行拼接，所以类别很重要，需提示用户
+    :param request:
+    :param master_id:
+    :return:
+    """
     contract = None
     if request.method == 'GET':
         form = ContractForm()
@@ -100,6 +124,12 @@ def contract_add(request, master_id=None):
 @login_required
 @contractor_only
 def contract_edit(request, contract_id):
+    """
+    修改合同视图
+    :param request:
+    :param contract_id:
+    :return:
+    """
     if request.method == "GET":
         contract = get_object_or_404(Contract, id=contract_id)
         form = ContractForm(instance=contract)

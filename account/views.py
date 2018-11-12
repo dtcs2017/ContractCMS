@@ -11,6 +11,13 @@ logging.basicConfig(level=logging.INFO,
 
 
 def register(request):
+    """
+    注册视图，采用自定义表单进行双重密码验证
+    所有动作视图统一采用message进行提示
+    数据库内家具新建和修改动作存入日志
+    :param request:
+    :return:
+    """
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         if form.is_valid():

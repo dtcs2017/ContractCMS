@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.urls import reverse
 from .models import Payment
 from django.contrib.auth.decorators import login_required
-from account.permission_decortor import accountant_only
+from account.permission_decorator import accountant_only
 import logging
 
 logging.basicConfig(level=logging.INFO,
@@ -54,6 +54,13 @@ def payment_detail(request, contract_id):
 @login_required
 @accountant_only
 def payment_edit(request, contract_id, payment_id):
+    """
+    编辑付款视图，仅财务部人员可操作
+    :param request:request对象
+    :param contract_id:合同id，URL参数
+    :param payment_id:付款记录id，URL参数
+    :return:
+    """
     if request.method == "GET":
         contract = get_object_or_404(Contract, id=contract_id)
         payment = get_object_or_404(Payment, id=payment_id)

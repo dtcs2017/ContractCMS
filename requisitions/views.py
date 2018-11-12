@@ -47,6 +47,13 @@ def requisition_detail(request, contract_id):
 
 @login_required
 def requisition_edit(request, contract_id, req_id):
+    """
+    编辑请款视图，仅工程部和合约部人员可操作
+    :param request:
+    :param contract_id:
+    :param req_id:
+    :return:
+    """
     if not (request.user.is_contractor or request.user.is_engineer):
         return HttpResponse('不具备添加和修改请款权限，请返回上一页')
 
