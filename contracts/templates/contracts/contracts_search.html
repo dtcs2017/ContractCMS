@@ -41,8 +41,7 @@
                         {% if contracts.count %}
                             <h1><span class="primary-color">“{{ search }}”</span>&nbsp;搜索结果
                             </h1>
-
-                            <table class="hover stack">
+                                <table class="responsive-card-table unstriped">
                                 <thead>
                                 <tr>
                                     <th class="text-center">索引</th>
@@ -54,36 +53,56 @@
                                     <th class="text-center"><span data-tooltip tabindex="2"
                                                                   title="点击金额查看请款详情">请款金额</span></th>
                                     <th class="text-center">请款比例</th>
+                                    <th class="text-center"><span data-tooltip tabindex="2"
+                                                                  title="点击金额查看付款详情">付款金额</span></th>
+                                    <th class="text-center">付款比例</th>
                                     <th class="text-center hide-for-small-only">签订时间</th>
                                     <th class="text-center hide-for-small-only">有效</th>
+                                    <th class="text-center hide-for-small-only">入成本</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {% for contract in contracts %}
 
                                     <tr>
-                                        <td class="text-center hide-for-large">{{ contract.index }}</td>
-                                        <td class="text-left show-for-large">{{ contract.index }}</td>
-                                        <td><a href="{{ contract.get_absolute_url }}">{{ contract.name }}</a></td>
-                                        <td>{{ contract.supplier }}</td>
-                                        <td>{{ contract.amount|comma }}</td>
-                                        <td>{% if contract.definite %}{{ contract.definite|comma }}{% endif %}</td>
-                                        <td><a href="{% url 'requisitions:req_detail' contract.id %}">
+                                        <td data-label="索引" class="text-center hide-for-large">{{ contract.index }}</td>
+                                        <td data-label="索引" class="text-left show-for-large">{{ contract.index }}</td>
+                                        <td data-label="合同名称"><a
+                                                href="{{ contract.get_absolute_url }}">{{ contract.name }}</a></td>
+                                        <td data-label="供应商名称">{{ contract.supplier }}</td>
+                                        <td data-label="合同金额">{{ contract.amount|comma }}</td>
+                                        <td data-label="决算金额">
+                                            {% if contract.definite %}{{ contract.definite|comma }}{% endif %}</td>
+                                        <td data-label="请款金额"><a href="{% url 'requisitions:req_detail' contract.id %}">
                                             {% if contract.total_requisition %}
                                                 {{ contract.total_requisition|comma }}{% endif %}</a></td>
-                                        <td>{% if contract.requisition_rate %}{% if contract.requisition_rate > 1 %}
-                                            <span class="alert-color"><i class="fi-alert"></i></span>{% endif %}
-                                            {{ contract.requisition_rate|rate }}{% endif %}</td>
-                                        <td class="hide-for-small-only">{{ contract.sign|date:"Y-m-d" }}</td>
-                                        <td class="hide-for-small-only">
+                                        <td data-label="请款比例">
+                                            {% if contract.requisition_rate %}{% if contract.requisition_rate > 1 %}
+                                                <span class="alert-color"><i class="fi-alert"></i></span>{% endif %}
+                                                {{ contract.requisition_rate|rate }}{% endif %}</td>
+                                        <td data-label="付款金额"><a href="{% url 'payments:payment_detail' contract.id %}">
+                                            {% if contract.total_payment %}
+                                                {{ contract.total_payment|comma }}{% endif %}</a></td>
+                                        <td data-label="付款比例">
+                                            {% if contract.payment_rate %}{% if contract.payment_rate > 1 %}
+                                                <span class="alert-color"><i class="fi-alert"></i></span>{% endif %}
+                                                {{ contract.payment_rate|rate }}{% endif %}</td>
+                                        <td data-label="签订时间"
+                                            class="hide-for-small-only">{{ contract.sign|date:"Y-m-d" }}</td>
+                                        <td data-label="有效" class="hide-for-small-only">
                                             {% if contract.active %} <i class="fi-check success-color"></i>
                                             {% else %}<i class="fi-x alert-color"></i>
                                             {% endif %}
                                         </td>
+                                        <td>{% if contract.is_cost %} <i class="fi-check success-color"></i>
+                                        {% else %}<i class="fi-x alert-color"></i>
+                                        {% endif %}</td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
+
                         {% else %}
                             <h1>未找到任何合同</h1>
                         {% endif %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from contracts.models import Contract
 from .forms import RequisitionForm
 from django.contrib import messages
@@ -31,7 +31,7 @@ def requisition_detail(request, contract_id):
 
     else:
         if not (request.user.is_contractor or request.user.is_engineer):
-            raise PermissionDenied
+            return HttpResponse('不具备添加和修改请款权限，请返回上一页')
         contract = get_object_or_404(Contract, id=contract_id)
         reqs = contract.requisitions.all()
         form = RequisitionForm(request.POST)
@@ -48,7 +48,7 @@ def requisition_detail(request, contract_id):
 @login_required
 def requisition_edit(request, contract_id, req_id):
     if not (request.user.is_contractor or request.user.is_engineer):
-        raise PermissionDenied
+        return HttpResponse('不具备添加和修改请款权限，请返回上一页')
 
     if request.method == "GET":
         contract = get_object_or_404(Contract, id=contract_id)

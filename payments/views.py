@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from contracts.models import Contract
 from .forms import PaymentForm
-from django.core.exceptions import PermissionDenied
+# from django.core.exceptions import PermissionDenied
 from django.contrib import messages
 from django.urls import reverse
 from .models import Payment
@@ -33,7 +33,8 @@ def payment_detail(request, contract_id):
                       {'contract': contract, 'payments': payments, 'form': form})
     else:
         if not request.user.is_accountant:
-            raise PermissionDenied
+            return HttpResponse('不具备添加和修改付款权限，请返回上一页')
+
         contract = get_object_or_404(Contract, id=contract_id)
         payments = contract.payments.all()
         form = PaymentForm(request.POST)

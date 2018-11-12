@@ -1,4 +1,5 @@
 from django.core.exceptions import PermissionDenied
+from django.shortcuts import HttpResponse
 
 
 def contractor_only(func):
@@ -6,7 +7,7 @@ def contractor_only(func):
         if request.user.is_contractor:
             return func(request, *args, **kwargs)
         else:
-            raise PermissionDenied
+            return HttpResponse('不具备添加和修改合同权限，请退回上一页')
     return wrapper
 
 
@@ -15,7 +16,7 @@ def accountant_only(func):
         if request.user.is_accountant:
             return func(request, *args, **kwargs)
         else:
-            raise PermissionDenied
+            return HttpResponse('不具备添加和修改付款权限，请返回上一页')
     return wrapper
 
 
