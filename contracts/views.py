@@ -17,7 +17,7 @@ logging.basicConfig(
     filename='cmslog.log',
     filemode='a+')
 
-
+@login_required
 def contract_list(request, subject_id=None):
     subject = None
     if request.method == "GET":
@@ -45,7 +45,7 @@ def contract_list(request, subject_id=None):
                        'contracts': contracts,
                        'search': search})
 
-
+@login_required
 def contract_detail(request, contract_id):
     contract = get_object_or_404(Contract, id=contract_id)
     return render(request,
