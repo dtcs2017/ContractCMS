@@ -76,7 +76,7 @@
                             <div class="cell medium-6"><p><strong>付款比例：</strong>
                             {% if contract.payment_rate %}{% if contract.payment_rate > 1 %}<span class="alert-color"><i class="fi-alert"></i></span>{% endif %}{{ contract.payment_rate|rate }}{% endif %}
                             </p></div>
-                            <div class="cell "><p><strong>合同摘要：</strong>{{ contract.text }}</p></div>
+                            <div class="cell text-center"><p><strong>合同摘要：<br></strong>{{ contract.text|show_as_para|safe }}</p></div>
                         </div>
 
                         <div class="callout warning grid-x text-center">
