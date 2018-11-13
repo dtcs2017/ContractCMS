@@ -14,6 +14,7 @@ logging.basicConfig(level=logging.INFO,
                     filename='cmslog.log',
                     filemode='a+')
 
+
 @login_required
 def requisition_detail(request, contract_id):
     """
@@ -39,7 +40,8 @@ def requisition_detail(request, contract_id):
             new_req = form.save(commit=False)
             new_req.contract = contract
             new_req.save()
-            logging.info("{} | req_add | amount={} | id={}".format(request.user.username, new_req.amount, new_req.id))
+            logging.info("{} | req_add | amount={} | id={} | invoice={}".format(request.user.username, new_req.amount,
+                                                                                new_req.id, new_req.invoice))
             messages.success(request, '成功添加请款记录')
             return redirect(reverse('requisitions:req_detail', args=[contract.id]))
         return render(request, 'requisitions/req_detail.html', {"contract": contract, 'reqs': reqs, 'form': form})
@@ -71,7 +73,9 @@ def requisition_edit(request, contract_id, req_id):
             current_req = form.save(commit=False)
             current_req.contract = contract
             current_req.save()
-            logging.info("{} | req_edit | amount={} | id={}".format(request.user.username, current_req.amount, current_req.id))
+            logging.info(
+                "{} | req_edit | amount={} | id={} | invoice={}".format(request.user.username, current_req.amount,
+                                                                        current_req.id, current_req.invoice))
             messages.success(request, '修改请款记录成功')
             return redirect(reverse('requisitions:req_detail', args=[contract.id]))
         return render(request, 'requisitions/req_edit.html', {'contract': contract, 'form': form})

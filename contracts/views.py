@@ -108,10 +108,12 @@ def contract_add(request, master_id=None):
             new_contract.index = index
             new_contract.save()
             logging.info(
-                "{} | contract_add | name={} | id={}".format(
+                "{} | contract_add | name={} | id={} | amount={} | def={}".format(
                     request.user.username,
                     new_contract.name,
-                    new_contract.id))
+                    new_contract.id,
+                new_contract.amount,
+                new_contract.definite))
             messages.success(request, '合同新增成功')
             return redirect(
                 reverse(
@@ -148,10 +150,12 @@ def contract_edit(request, contract_id):
             current_contract.master = master
             current_contract.save()
             logging.info(
-                "{} | contract_edit | name={} | id={}".format(
+                "{} | contract_edit | name={} | id={} | amount={} | def={}".format(
                     request.user.username,
                     current_contract.name,
-                    current_contract.id))
+                    current_contract.id,
+                current_contract.amount,
+                current_contract.definite))
             messages.success(request, '合同信息修改成功')
             return redirect(
                 reverse(
