@@ -97,14 +97,14 @@ def contract_add(request, master_id=None):
             index = new_contract.company.name + '(' + new_contract.sign.strftime(
                 "%Y") + ')' + '-' + new_contract.subject.tag + '-' + str(
                 Contract.objects.filter(subject=new_contract.subject, company=get_object_or_404(Company, id=1)).filter(
-                    master__isnull=True).count() + 1).zfill(4)
+                    master__isnull=True).count() + 1).zfill(3)
             master_contract_id = request.POST.get('master', None)
             if master_contract_id:
                 new_contract.master = int(master_contract_id)
                 supple_count = Contract.objects.filter(
                     master=int(master_contract_id)).count()
                 index = Contract.objects.get(
-                    id=new_contract.master).index + '-补-' + str(supple_count + 1).zfill(4)
+                    id=new_contract.master).index + '-补-' + str(supple_count + 1).zfill(2)
             new_contract.index = index
             new_contract.save()
             logging.info(
