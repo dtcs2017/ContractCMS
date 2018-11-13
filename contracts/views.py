@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Subject, Contract
+from .models import Subject, Contract, Company
 from .forms import ContractForm
 from django.contrib import messages
 from django.urls import reverse
@@ -96,7 +96,8 @@ def contract_add(request, master_id=None):
             new_contract = form.save(commit=False)
             index = new_contract.company.name + '(' + new_contract.sign.strftime(
                 "%Y") + ')' + '-' + new_contract.subject.tag + '-' + str(
-                Contract.objects.filter(subject=new_contract.subject).filter(master__isnull=True).count() + 1).zfill(4)
+                Contract.objects.filter(subject=new_contract.subject, company=get_object_or_404(Company, id=1)).filter(
+                    master__isnull=True).count() + 1).zfill(4)
             master_contract_id = request.POST.get('master', None)
             if master_contract_id:
                 new_contract.master = int(master_contract_id)
