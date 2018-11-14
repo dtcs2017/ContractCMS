@@ -86,8 +86,8 @@ def req_list(request, directcost_id):
         return render(request, 'minors/directreqs_list.html',
                       {'directcost': directcost, 'form': form, 'reqs': reqs})
     else:
-        # if request.user.is_accountant:
-        #     return HttpResponse('不具备权限')
+        if not (request.user.is_engineer or request.user.is_contractor):
+            return HttpResponse('不具备权限')
         directcost = get_object_or_404(DirectCost, id=directcost_id)
         reqs = directcost.directreqs.all()
         form = DirectRequisitionForm(request.POST)
@@ -109,8 +109,8 @@ def req_list(request, directcost_id):
 
 @login_required
 def req_edit(request, directcost_id, req_id):
-    # if request.user.is_accountant:
-    #     return HttpResponse('不具备权限')
+    if not (request.user.is_engineer or request.user.is_contractor):
+        return HttpResponse('不具备权限')
     if request.method == "GET":
         directcost = get_object_or_404(DirectCost, id=directcost_id)
         req = get_object_or_404(DirectRequisition, id=req_id)
