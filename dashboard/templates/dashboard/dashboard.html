@@ -141,6 +141,46 @@
                 </div>
             </div>
         </div>
+
+        {#非合同付款说明部分#}
+         <h3 class="type-sidelines"><span><i class="fa fa-credit-card primary-color"></i> 非合同付款操作</span></h3>
+        <div class="grid-x medium-up-1 large-up-3 grid-margin-x" data-equalizer>
+            <div class="cell ">
+                <div class="card shadow" data-equalizer-watch>
+                    <div class="card-divider">
+                        <span class="primary-color"><i class="fi-plus"></i></span><span>&nbsp;&nbsp;录入新记录</span>
+                    </div>
+                    <div class="card-section">
+                        <h4>添加新非合同请款与付款记录</h4>
+                        <p class="h6">进入<a href="{% url 'minors:minor_list' %}">非合同付款列表页</a>，点击左侧菜单中<span class="h5 label">新增非合同记录</span>，直接新增即可。</p>
+                        <p class="h6">点击请款金额可进入请款列表，在左侧菜单内点击<span class="h5 label">新增非合同请款</span>。</p>
+                        <p class="h6">付款记录与请款记录的操作类似，在付款记录列表中点击<span class="h5 label">新增非合同付款</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card shadow" data-equalizer-watch>
+                    <div class="card-divider">
+                        <span class="primary-color"><i class="fi-pencil"></i></span><span>&nbsp;&nbsp;查看和修改记录</span>
+                    </div>
+                    <div class="card-section">
+                        <h4>修改各种记录</h4>
+                        <p>点击金额可分别对非合同记录，请款和付款记录进行修改</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card shadow" data-equalizer-watch>
+                    <div class="card-divider">
+                        <span class="primary-color"><i class="fi-star"></i></span><span>&nbsp;&nbsp;注意事项</span>
+                    </div>
+                    <div class="card-section">
+                        <h4>权限</h4>
+                        <p>权限配置与合同管理部分相同，非合同记录由合约部人员录入，业务部人员可录入请款，财务人员可录入付款信息。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
