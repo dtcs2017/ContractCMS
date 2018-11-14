@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load contracts_tag %}
+{% block title %}
+    修改{{ directcost.name }}
+{% endblock %}
+
+
+{% block head %}
+    <style>
+    body {
+        background-color: #f0f0f0;
+    }
+    </style>
+{% endblock %}
+
+{% block nav %}
+    {% include 'base/nav.html' %}
+{% endblock %}
+
+{% block main %}
+    <form action="." method="post">
+        <div class="grid-container">
+            <h1 class="text-center">修改<span class="primary-color">{{ directcost.name }}</span></h1>
+            {% for field in form %}
+
+                <div class="grid-x align-center-middle grid-padding-x ">
+
+                    <div class="cell small-10 medium-3 medium-text-right">
+                        {{ field.label_tag }}
+                    </div>
+                    <div class="cell small-10 medium-6">
+                        {{ field }}
+                    </div>
+
+                    <div class="cell small-10 medium-3 text-center">
+                        {{ field.errors }}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="grid-x align-center">
+                <div class="cell small-10 text-center">
+                    {{ form.non_field_errors }}
+                </div>
+            </div>
+            {% csrf_token %}
+            <div class="grid-x align-center">
+                <input type="submit" class="button" value="提交">
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block js_code %}
+    <script src="{% static 'js/contracts/contract_form.js' %}"></script>
+{% endblock %}

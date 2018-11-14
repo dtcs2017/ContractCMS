@@ -1,0 +1,84 @@
+{% extends 'base/base.html' %}
+{% load contracts_tag %}
+{% block title %}
+    {{ directcost.name }}非合同请款列表
+{% endblock %}
+
+{% block nav %}
+    {% include 'base/nav.html' %}
+{% endblock %}
+
+{% block main %}
+    <div class="grid-container fluid full">
+        <div class="grid-x">
+            {#侧边栏部分,采用Accordion样式菜单#}
+            <div class="cell large-2 text-center">
+                <ul class="accordion" data-accordion data-allow-all-closed="true">
+
+                    <li class="accordion-item" data-accordion-item>
+                        <a href="/" class="accordion-title rem-1">新增非合同请款</a>
+                        <div class="accordion-content" data-tab-content>
+                            <form action="{% url 'minors:req_list' directcost.id %}" method="post">
+                                <div class="grid-container">
+                                    {% for field in form %}
+                                        <div class="grid-x align-center-middle grid-padding-x ">
+                                            <div class="cell small-10 medium-4 medium-text-right">
+                                                {{ field.label_tag }}
+                                            </div>
+                                            <div class="cell small-10 medium-8">
+                                                {{ field }}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="grid-x align-center">
+                                        <div class="cell small-10 text-center">
+                                            {{ form.non_field_errors }}
+                                        </div>
+                                    </div>
+                                    {% csrf_token %}
+                                <input type="submit" class="button" value="提交">
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            {#主体部分,采用表格#}
+            <div class="cell large-10 ">
+                <div class="grid-x grid-padding-x text-center">
+                    <div class="cell">
+                        {% if reqs.count %}
+                            <h1><span class="primary-color">{{ directcost.name }}</span>非合同请款列表
+                            </h1>
+
+                            <table class="responsive-card-table unstriped">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">序号</th>
+                                    <th class="text-center">金额</th>
+                                    <th class="text-center">凭证金额</th>
+                                    <th class="text-center">请款时间</th>
+                                    <th class="text-center">备注</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for req in reqs %}
+                                    <tr>
+                                        <td data-label="序号" class="text-center">{{ forloop.counter }}</td>
+                                        <td data-label="金额" class=""><a href="{% url 'minors:req_edit' directcost.id req.id %}">{{ req.amount|comma }}</a></td>
+                                        <td data-label="凭证金额">{{ req.invoice|comma }}</td>
+                                        <td data-label="请款时间">{{ req.payday|date:"Y-m-d" }}</td>
+                                        <td data-label="备注">{{ req.text }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <h1><span class="primary-color"></span>无非合同请款记录</h1>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

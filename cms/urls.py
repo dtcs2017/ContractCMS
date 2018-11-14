@@ -23,5 +23,6 @@ urlpatterns = [
     path('contracts/', include('contracts.urls', namespace='contracts')),
     path('requisitions/', include('requisitions.urls', namespace='requisitions')),
     path('payments/', include('payments.urls', namespace='payments')),
+    path('minor/', include('minors.urls', namespace='minors')),
     path('', include('dashboard.urls', namespace='dashboard')),
 ]

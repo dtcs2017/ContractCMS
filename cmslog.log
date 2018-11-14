@@ -1,0 +1,735 @@
+Wed, 14 Nov 2018 16:49:13 log.py[line:228] ERROR Internal Server Error: /minor/list/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 32, in minor_list
+    {'directcosts': directcosts, 'form': form, 'subjects': subjects, 'subject': subject})
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\Coding\ContractCMS\contracts\templatetags\contracts_tag.py", line 9, in total_posts
+    return "{:,.2f}".format(decimal_obj)
+ValueError: Unknown format code 'f' for object of type 'str'
+Wed, 14 Nov 2018 16:55:14 views.py[line:45] INFO lee0709 | minor_add | name=cjjvefe | id=12 | amount=30000
+Wed, 14 Nov 2018 16:55:14 log.py[line:228] ERROR Internal Server Error: /minor/add/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 75, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'minors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\account\permission_decorator.py", line 8, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 48, in minor_add
+    return redirect(reverse('minors:minor_list'))
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 86, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'minors' is not a registered namespace
+Wed, 14 Nov 2018 16:56:25 log.py[line:228] ERROR Internal Server Error: /minor/list/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 75, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'minor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 32, in minor_list
+    {'directcosts': directcosts, 'form': form, 'subjects': subjects, 'subject': subject})
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 188, in render
+    return template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 86, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'minor' is not a registered namespace
+Wed, 14 Nov 2018 16:56:31 log.py[line:228] ERROR Internal Server Error: /minor/list/6/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 75, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'minor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 32, in minor_list
+    {'directcosts': directcosts, 'form': form, 'subjects': subjects, 'subject': subject})
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 188, in render
+    return template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 86, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'minor' is not a registered namespace
+Wed, 14 Nov 2018 16:56:32 log.py[line:228] ERROR Internal Server Error: /minor/list/7/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 75, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'minor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 32, in minor_list
+    {'directcosts': directcosts, 'form': form, 'subjects': subjects, 'subject': subject})
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 188, in render
+    return template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 86, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'minor' is not a registered namespace
+Wed, 14 Nov 2018 16:56:37 log.py[line:228] ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 75, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'minor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Coding\ContractCMS\dashboard\views.py", line 11, in dashboard
+    return render(request, 'dashboard/dashboard.html')
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 188, in render
+    return template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 86, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'minor' is not a registered namespace
+Wed, 14 Nov 2018 16:57:18 views.py[line:45] INFO lee0709 | minor_add | name=321312321132 | id=13 | amount=9999999999
+Wed, 14 Nov 2018 16:59:40 log.py[line:228] ERROR Internal Server Error: /minor/list/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 32, in minor_list
+    {'directcosts': directcosts, 'form': form, 'subjects': subjects, 'subject': subject})
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'minor_edit' not found. 'minor_edit' is not a valid view function or pattern name.
+Wed, 14 Nov 2018 17:00:12 log.py[line:228] ERROR Internal Server Error: /minor/list/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 32, in minor_list
+    {'directcosts': directcosts, 'form': form, 'subjects': subjects, 'subject': subject})
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\Coding\ContractCMS\contracts\templatetags\contracts_tag.py", line 9, in total_posts
+    return "{:,.2f}".format(decimal_obj)
+TypeError: unsupported format string passed to NoneType.__format__
+Wed, 14 Nov 2018 17:00:49 log.py[line:228] ERROR Internal Server Error: /minor/list/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 32, in minor_list
+    {'directcosts': directcosts, 'form': form, 'subjects': subjects, 'subject': subject})
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\Coding\ContractCMS\contracts\templatetags\contracts_tag.py", line 9, in total_posts
+    return "{:,.2f}".format(decimal_obj)
+TypeError: unsupported format string passed to NoneType.__format__
+Wed, 14 Nov 2018 17:04:16 views.py[line:71] INFO lee0709 | minor_edit | name=行政事业费 | id=5 | amount=666666
+Wed, 14 Nov 2018 17:04:22 views.py[line:71] INFO lee0709 | minor_edit | name=行政事业费 | id=5 | amount=33333
+Wed, 14 Nov 2018 17:04:26 views.py[line:71] INFO lee0709 | minor_edit | name=行政事业费 | id=5 | amount=33333.00
+Wed, 14 Nov 2018 17:05:17 views.py[line:71] INFO lee0709 | minor_edit | name=soyn | id=11 | amount=3.00
+Wed, 14 Nov 2018 17:05:25 views.py[line:71] INFO lee0709 | minor_edit | name=XX收费窗口 | id=2 | amount=321123321.00
+Wed, 14 Nov 2018 17:06:50 views.py[line:45] INFO lee0709 | minor_add | name=0103000 | id=14 | amount=30000
+Wed, 14 Nov 2018 17:08:49 views.py[line:45] INFO lee0709 | minor_add | name=333333 | id=15 | amount=151515
+Wed, 14 Nov 2018 17:11:37 views.py[line:71] INFO lee0709 | minor_edit | name=行政事业费 | id=5 | amount=33333.00
+Wed, 14 Nov 2018 17:13:13 log.py[line:228] ERROR Internal Server Error: /minor/req/list/11/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 87, in req_list
+    {'directcost': directcost, 'form': form, 'reqs': reqs})
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'req_list' with no arguments not found. 1 pattern(s) tried: ['minor\\/req\\/list\\/(?P<directcost_id>[0-9]+)\\/$']
+Wed, 14 Nov 2018 17:22:45 views.py[line:101] INFO lee0709 | direct_req_add | id=12 | amount=312312 | invoice=321312
+Wed, 14 Nov 2018 17:24:08 views.py[line:129] INFO lee0709 | direct_req_edit | id=3 | amount=199999 | invoice=199999
+Wed, 14 Nov 2018 17:24:34 views.py[line:71] INFO lee0709 | minor_edit | name=soyn | id=11 | amount=3.00
+Wed, 14 Nov 2018 17:24:52 views.py[line:71] INFO lee0709 | minor_edit | name=0103000 | id=14 | amount=30000.00
+Wed, 14 Nov 2018 17:25:24 views.py[line:71] INFO lee0709 | minor_edit | name=321312321132 | id=13 | amount=99321
+Wed, 14 Nov 2018 17:25:46 views.py[line:101] INFO lee0709 | direct_req_add | id=13 | amount=1111111 | invoice=1111111
+Wed, 14 Nov 2018 17:25:58 views.py[line:129] INFO lee0709 | direct_req_edit | id=13 | amount=1111111.00 | invoice=1111111.00
+Wed, 14 Nov 2018 17:26:23 views.py[line:101] INFO lee0709 | direct_req_add | id=14 | amount=321 | invoice=321
+Wed, 14 Nov 2018 17:33:03 views.py[line:165] INFO lee0709 | direct_payments_add | id=9 | amount=32131 | rate=6
+Wed, 14 Nov 2018 17:33:16 views.py[line:165] INFO lee0709 | direct_payments_add | id=10 | amount=2133312 | rate=33
+Wed, 14 Nov 2018 17:34:21 views.py[line:165] INFO lee0709 | direct_payments_add | id=11 | amount=9999 | rate=12
+Wed, 14 Nov 2018 17:35:13 views.py[line:165] INFO lee0709 | direct_payments_add | id=12 | amount=321321 | rate=0
+Wed, 14 Nov 2018 17:36:53 log.py[line:228] ERROR Internal Server Error: /minor/pay/edit/11/9/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\account\permission_decorator.py", line 17, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 182, in pay_edit
+    {'directcost': directcost, 'form': form, 'payment': payment})
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'req_edit' with arguments '(11, '')' not found. 1 pattern(s) tried: ['minor\\/req\\/edit\\/(?P<directcost_id>[0-9]+)\\/(?P<req_id>[0-9]+)\\/$']
+Wed, 14 Nov 2018 17:37:09 log.py[line:228] ERROR Internal Server Error: /minor/pay/edit/11/9/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\account\permission_decorator.py", line 17, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 182, in pay_edit
+    {'directcost': directcost, 'form': form, 'payment': payment})
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'req_edit' with arguments '(11, '')' not found. 1 pattern(s) tried: ['minor\\/req\\/edit\\/(?P<directcost_id>[0-9]+)\\/(?P<req_id>[0-9]+)\\/$']
+Wed, 14 Nov 2018 17:38:00 log.py[line:228] ERROR Internal Server Error: /minor/pay/edit/11/9/
+Traceback (most recent call last):
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\account\permission_decorator.py", line 17, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Coding\ContractCMS\minors\views.py", line 182, in pay_edit
+    {'directcost': directcost, 'form': form, 'payment': payment})
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\Minko\AppData\Roaming\Python\Python36\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'pay_edit' with arguments '(11, '')' not found. 1 pattern(s) tried: ['minor\\/pay\\/edit\\/(?P<directcost_id>[0-9]+)\\/(?P<pay_id>[0-9]+)\\/$']
+Wed, 14 Nov 2018 17:38:31 views.py[line:193] INFO lee0709 | direct_pay_edit | id=9 | amount=5556666 | rate=77
+Wed, 14 Nov 2018 17:38:51 views.py[line:101] INFO lee0709 | direct_req_add | id=15 | amount=123 | invoice=123
+Wed, 14 Nov 2018 17:39:08 views.py[line:45] INFO lee0709 | minor_add | name=索引是否正确呢 | id=16 | amount=55555
+Wed, 14 Nov 2018 17:39:57 views.py[line:71] INFO lee0709 | minor_edit | name=索引是否正确呢 | id=16 | amount=55555.00
+Wed, 14 Nov 2018 17:40:19 views.py[line:45] INFO lee0709 | minor_add | name=282828828282 | id=17 | amount=828282822882
+Wed, 14 Nov 2018 17:40:42 views.py[line:101] INFO lee0709 | direct_req_add | id=16 | amount=999999 | invoice=999999
+Wed, 14 Nov 2018 17:40:51 views.py[line:101] INFO lee0709 | direct_req_add | id=17 | amount=1 | invoice=1
+Wed, 14 Nov 2018 17:41:01 views.py[line:129] INFO lee0709 | direct_req_edit | id=17 | amount=1.00 | invoice=1.00
+Wed, 14 Nov 2018 17:41:06 views.py[line:129] INFO lee0709 | direct_req_edit | id=17 | amount=1.00 | invoice=100000000001.00
+Wed, 14 Nov 2018 17:41:11 views.py[line:129] INFO lee0709 | direct_req_edit | id=17 | amount=1.00 | invoice=10000001.00
+Wed, 14 Nov 2018 17:41:18 views.py[line:129] INFO lee0709 | direct_req_edit | id=17 | amount=101 | invoice=10000001.00
+Wed, 14 Nov 2018 17:41:24 views.py[line:129] INFO lee0709 | direct_req_edit | id=17 | amount=101.00 | invoice=10000001.00
+Wed, 14 Nov 2018 17:42:32 views.py[line:101] INFO lee0709 | direct_req_add | id=18 | amount=321 | invoice=321
+Wed, 14 Nov 2018 17:42:47 views.py[line:71] INFO lee0709 | minor_edit | name=soyn | id=11 | amount=321
+Wed, 14 Nov 2018 17:42:53 views.py[line:129] INFO lee0709 | direct_req_edit | id=14 | amount=66667 | invoice=321.00
+Wed, 14 Nov 2018 17:43:00 views.py[line:193] INFO lee0709 | direct_pay_edit | id=9 | amount=6666.00 | rate=77.0000
+Wed, 14 Nov 2018 17:43:03 views.py[line:193] INFO lee0709 | direct_pay_edit | id=10 | amount=3333 | rate=33.0000
+Wed, 14 Nov 2018 17:43:09 views.py[line:193] INFO lee0709 | direct_pay_edit | id=12 | amount=33330 | rate=0.0000
+Wed, 14 Nov 2018 17:43:19 views.py[line:71] INFO lee0709 | minor_edit | name=soyn | id=11 | amount=321.00
+Wed, 14 Nov 2018 17:43:41 views.py[line:165] INFO lee0709 | direct_payments_add | id=13 | amount=929293 | rate=6
+Wed, 14 Nov 2018 17:44:04 views.py[line:71] INFO lee0709 | minor_edit | name=6666666 | id=17 | amount=6666666

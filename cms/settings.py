@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'contracts.apps.ContractsConfig',
     'requisitions.apps.RequisitionsConfig',
     'payments.apps.PaymentsConfig',
+    'minors.apps.MinorsConfig',
 ]
 
 MIDDLEWARE = [
