@@ -15,7 +15,7 @@ class DirectCost(models.Model):
     updated = models.DateTimeField(auto_now=True, verbose_name='更新时间')
 
     def __str__(self):
-        return "{} 付给 {}".format(self.amount, self.supplier)
+        return "{}-{}".format(self.name, self.amount)
 
     @property
     def total_reqs(self):
