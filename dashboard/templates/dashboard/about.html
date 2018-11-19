@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/base/about.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="grid-container">
+<h1 class="text-center">版本历史</h1>
+<ul class="list-group">
+  <li class="list-group-item">2018.11.11 1.0版上线</li>
+  <li class="list-group-item">2018.11.14 1.01版 增加非合同付款功能</li>
+</ul>
+</div>
+{% endblock %}

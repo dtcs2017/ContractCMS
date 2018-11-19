@@ -733,3 +733,7 @@ Wed, 14 Nov 2018 17:43:09 views.py[line:193] INFO lee0709 | direct_pay_edit | id
 Wed, 14 Nov 2018 17:43:19 views.py[line:71] INFO lee0709 | minor_edit | name=soyn | id=11 | amount=321.00
 Wed, 14 Nov 2018 17:43:41 views.py[line:165] INFO lee0709 | direct_payments_add | id=13 | amount=929293 | rate=6
 Wed, 14 Nov 2018 17:44:04 views.py[line:71] INFO lee0709 | minor_edit | name=6666666 | id=17 | amount=6666666
+Wed, 14 Nov 2018 17:50:03 views.py[line:71] INFO lee0709 | minor_edit | name=333333 | id=15 | amount=151515.00
+Wed, 14 Nov 2018 17:50:12 views.py[line:71] INFO lee0709 | minor_edit | name=7777 | id=15 | amount=9999999
+Wed, 14 Nov 2018 17:50:21 views.py[line:101] INFO lee0709 | direct_req_add | id=19 | amount=13288 | invoice=13213
+Wed, 14 Nov 2018 17:50:47 views.py[line:165] INFO lee0709 | direct_payments_add | id=14 | amount=52363981 | rate=0.03

@@ -9,3 +9,13 @@ def dashboard(request):
     :return:
     """
     return render(request, 'dashboard/dashboard.html')
+
+
+def about(request):
+    """
+    关于页面
+    :param request:
+    :return:
+    """
+
+    return render(request, 'dashboard/about.html')
